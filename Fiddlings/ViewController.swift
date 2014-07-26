@@ -14,7 +14,8 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-                                    
+        NSLog("view did load")
+        
     }
 
     override var representedObject: AnyObject? {
@@ -24,6 +25,9 @@ class ViewController: NSViewController {
                                     
     }
 
+    func myfunc() -> String {
+        return "Foo"
+    }
 
 }
 

@@ -14,6 +14,12 @@
 		3805C698194482D400D4BAF4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3805C697194482D400D4BAF4 /* Images.xcassets */; };
 		3805C69B194482D400D4BAF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3805C699194482D400D4BAF4 /* Main.storyboard */; };
 		3805C6A7194482D400D4BAF4 /* FiddlingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3805C6A6194482D400D4BAF4 /* FiddlingsTests.swift */; };
+		386A4691197EBAC9004338AA /* NSSplitViewItem+TemporaryFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 386A4690197EBAC9004338AA /* NSSplitViewItem+TemporaryFix.m */; };
+		386A4693197EC21A004338AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386A4692197EC21A004338AA /* AppDelegate.swift */; };
+		386A46C4197EFA08004338AA /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386A46C3197EFA08004338AA /* WindowController.swift */; };
+		386A46C6197F0AA4004338AA /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386A46C5197F0AA4004338AA /* PreviewController.swift */; };
+		38DE86DB197EAB5C00D809D6 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DE86DA197EAB5C00D809D6 /* TextViewController.swift */; };
+		38F13DFF1983C5FC00E5C348 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F13DFE1983C5FC00E5C348 /* SplitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +44,13 @@
 		3805C6A0194482D400D4BAF4 /* FiddlingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FiddlingsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3805C6A5194482D400D4BAF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3805C6A6194482D400D4BAF4 /* FiddlingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiddlingsTests.swift; sourceTree = "<group>"; };
+		386A468F197EBAAD004338AA /* NSSplitViewItem+TemporaryFix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSSplitViewItem+TemporaryFix.h"; sourceTree = "<group>"; };
+		386A4690197EBAC9004338AA /* NSSplitViewItem+TemporaryFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSplitViewItem+TemporaryFix.m"; sourceTree = "<group>"; };
+		386A4692197EC21A004338AA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		386A46C3197EFA08004338AA /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		386A46C5197F0AA4004338AA /* PreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
+		38DE86DA197EAB5C00D809D6 /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
+		38F13DFE1983C5FC00E5C348 /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +98,13 @@
 				3805C699194482D400D4BAF4 /* Main.storyboard */,
 				3805C694194482D400D4BAF4 /* Document.xcdatamodeld */,
 				3805C68C194482D400D4BAF4 /* Supporting Files */,
+				38DE86DA197EAB5C00D809D6 /* TextViewController.swift */,
+				386A468F197EBAAD004338AA /* NSSplitViewItem+TemporaryFix.h */,
+				386A4690197EBAC9004338AA /* NSSplitViewItem+TemporaryFix.m */,
+				386A4692197EC21A004338AA /* AppDelegate.swift */,
+				386A46C3197EFA08004338AA /* WindowController.swift */,
+				386A46C5197F0AA4004338AA /* PreviewController.swift */,
+				38F13DFE1983C5FC00E5C348 /* SplitViewController.swift */,
 			);
 			path = Fiddlings;
 			sourceTree = "<group>";
@@ -214,8 +234,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				386A46C6197F0AA4004338AA /* PreviewController.swift in Sources */,
+				38DE86DB197EAB5C00D809D6 /* TextViewController.swift in Sources */,
+				386A4691197EBAC9004338AA /* NSSplitViewItem+TemporaryFix.m in Sources */,
 				3805C696194482D400D4BAF4 /* Document.xcdatamodeld in Sources */,
 				3805C691194482D400D4BAF4 /* ViewController.swift in Sources */,
+				38F13DFF1983C5FC00E5C348 /* SplitViewController.swift in Sources */,
+				386A4693197EC21A004338AA /* AppDelegate.swift in Sources */,
+				386A46C4197EFA08004338AA /* WindowController.swift in Sources */,
 				3805C68F194482D400D4BAF4 /* main.swift in Sources */,
 				3805C693194482D400D4BAF4 /* Document.swift in Sources */,
 			);
@@ -332,10 +358,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Fiddlings/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -343,9 +372,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Fiddlings/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -407,6 +438,7 @@
 				3805C6AC194482D400D4BAF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3805C6AD194482D400D4BAF4 /* Build configuration list for PBXNativeTarget "FiddlingsTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +447,7 @@
 				3805C6AF194482D400D4BAF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
