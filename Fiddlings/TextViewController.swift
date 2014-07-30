@@ -13,9 +13,14 @@ class TextViewController: NSViewController, NSTextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        
+        // TODO: Configure these in interface builder once it does not crash Xcode
+        textview.font = NSFont(name: "Menlo", size: 12)
+        textview.richText = false
+        textview.automaticQuoteSubstitutionEnabled = false
     }
     
-    @IBOutlet var textview: NSTextView?
+    @IBOutlet var textview: NSTextView!
     
     // NSTextViewDelegate
     
