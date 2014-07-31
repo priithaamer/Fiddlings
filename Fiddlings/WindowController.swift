@@ -33,13 +33,19 @@ class WindowController: NSWindowController {
     
     override var document: AnyObject! {
         didSet {
-            NSLog("did set document")
+//            NSLog("did set document")
 //            let listViewController = window.contentViewController as ListViewController
 //            listViewController.document = document as? ListDocument
+            
+            let splitViewController = window.contentViewController as SplitViewController
+            splitViewController.document = document as? Document
         }
     }
     
-//    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject!) {
+    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject!) {
+//        super.prepareForSegue(segue, sender: sender)
+        
+        NSLog("Prepare for seque!!!")
 //        if segue.identifier == SegueIdentifiers.showAddItemViewController {
 //            let listViewController = window.contentViewController as ListViewController
 //            
@@ -47,7 +53,7 @@ class WindowController: NSWindowController {
 //            
 //            addItemViewController.delegate = listViewController
 //        }
-//    }
+    }
     
     
     // MARK: IBActions

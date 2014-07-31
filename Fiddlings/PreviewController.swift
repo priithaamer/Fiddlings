@@ -13,12 +13,6 @@ class PreviewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-//        NSLog("preview view did load")
-        
-//        var webview = WebView(frame: self.view.frame)
-//        self.view.addSubview(webview)
     }
     
     // MARK: IBOutlets
@@ -36,7 +30,6 @@ class PreviewController: NSViewController {
 //    }
     
     func updateWebView(str: String) {
-//        NSLog(str)
         webview?.mainFrame.loadHTMLString(str, baseURL:nil)
     }
     

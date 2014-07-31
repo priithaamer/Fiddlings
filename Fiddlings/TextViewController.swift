@@ -24,14 +24,22 @@ class TextViewController: NSViewController, NSTextViewDelegate {
     
     // NSTextViewDelegate
     
+    func changeText(str:String) {
+        textview.string = str
+    }
+    
     func textDidChange(notification: NSNotification!) {
-        //        NSLog("Text did change")
-        
-        if let prc = self.parentViewController.childViewControllers[1] as? PreviewController {
-            if var str = textview?.string {
-                prc.updateWebView(str)
+        if let parent = self.parentViewController as? SplitViewController {
+            if let str = textview?.string {
+                parent.updateHTML(str)
             }
         }
+        
+//        if let prc = self.parentViewController.childViewControllers[1] as? PreviewController {
+//            if var str = textview?.string {
+//                prc.updateWebView(str)
+//            }
+//        }
     }
     
 }

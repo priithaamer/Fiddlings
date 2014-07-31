@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3805C68F194482D400D4BAF4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3805C68E194482D400D4BAF4 /* main.swift */; };
-		3805C691194482D400D4BAF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3805C690194482D400D4BAF4 /* ViewController.swift */; };
 		3805C693194482D400D4BAF4 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3805C692194482D400D4BAF4 /* Document.swift */; };
-		3805C696194482D400D4BAF4 /* Document.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3805C694194482D400D4BAF4 /* Document.xcdatamodeld */; };
 		3805C698194482D400D4BAF4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3805C697194482D400D4BAF4 /* Images.xcassets */; };
 		3805C69B194482D400D4BAF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3805C699194482D400D4BAF4 /* Main.storyboard */; };
 		3805C6A7194482D400D4BAF4 /* FiddlingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3805C6A6194482D400D4BAF4 /* FiddlingsTests.swift */; };
@@ -36,9 +34,7 @@
 		3805C689194482D400D4BAF4 /* Fiddlings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fiddlings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3805C68D194482D400D4BAF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3805C68E194482D400D4BAF4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		3805C690194482D400D4BAF4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3805C692194482D400D4BAF4 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
-		3805C695194482D400D4BAF4 /* Document.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Document.xcdatamodel; sourceTree = "<group>"; };
 		3805C697194482D400D4BAF4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3805C69A194482D400D4BAF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3805C6A0194482D400D4BAF4 /* FiddlingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FiddlingsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,11 +88,9 @@
 		3805C68B194482D400D4BAF4 /* Fiddlings */ = {
 			isa = PBXGroup;
 			children = (
-				3805C690194482D400D4BAF4 /* ViewController.swift */,
 				3805C692194482D400D4BAF4 /* Document.swift */,
 				3805C697194482D400D4BAF4 /* Images.xcassets */,
 				3805C699194482D400D4BAF4 /* Main.storyboard */,
-				3805C694194482D400D4BAF4 /* Document.xcdatamodeld */,
 				3805C68C194482D400D4BAF4 /* Supporting Files */,
 				38DE86DA197EAB5C00D809D6 /* TextViewController.swift */,
 				386A468F197EBAAD004338AA /* NSSplitViewItem+TemporaryFix.h */,
@@ -237,8 +231,6 @@
 				386A46C6197F0AA4004338AA /* PreviewController.swift in Sources */,
 				38DE86DB197EAB5C00D809D6 /* TextViewController.swift in Sources */,
 				386A4691197EBAC9004338AA /* NSSplitViewItem+TemporaryFix.m in Sources */,
-				3805C696194482D400D4BAF4 /* Document.xcdatamodeld in Sources */,
-				3805C691194482D400D4BAF4 /* ViewController.swift in Sources */,
 				38F13DFF1983C5FC00E5C348 /* SplitViewController.swift in Sources */,
 				386A4693197EC21A004338AA /* AppDelegate.swift in Sources */,
 				386A46C4197EFA08004338AA /* WindowController.swift in Sources */,
@@ -450,19 +442,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		3805C694194482D400D4BAF4 /* Document.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				3805C695194482D400D4BAF4 /* Document.xcdatamodel */,
-			);
-			currentVersion = 3805C695194482D400D4BAF4 /* Document.xcdatamodel */;
-			path = Document.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 3805C681194482D300D4BAF4 /* Project object */;
 }
