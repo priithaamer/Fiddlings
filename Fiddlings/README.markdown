@@ -3,6 +3,7 @@ Feature list:
 - Import / eksport jsbin.com, jsfiddle.com, codepen.io
 - Gist eksport
 - HTML import
+- Quick look support
 
 Issues:
 
