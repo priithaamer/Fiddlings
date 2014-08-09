@@ -17,9 +17,9 @@ class Document: NSDocument {
     
     //    public weak var delegate: DocumentDelegate?
     
-    public var html: String
+    internal var html: String
     
-    init() {
+    override init() {
         //        super.init()
         // Add your subclass-specific initialization here.
         

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="14A298i" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="jGA-0Y-lOj">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="14A314h" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="jGA-0Y-lOj">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6185.11"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="6185.11"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6205"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="6205"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -652,7 +652,7 @@
             <objects>
                 <windowController id="jGA-0Y-lOj" customClass="WindowController" customModule="Fiddlings" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="Ckk-yw-fiv">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
                         <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
                         <rect key="contentRect" x="70" y="80" width="800" height="500"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1366" height="745"/>
@@ -660,6 +660,29 @@
                             <rect key="frame" x="0.0" y="0.0" width="800" height="500"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </view>
+                        <toolbar key="toolbar" implicitIdentifier="512CE351-CF89-4805-8AF6-772773B6D99F" autosavesConfiguration="NO" allowsUserCustomization="NO" prefersToBeShown="NO" displayMode="iconOnly" sizeMode="small" id="9Y1-b5-uWl">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="KJi-Mt-EtG"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="HwR-Au-9aW"/>
+                                <toolbarItem implicitItemIdentifier="B9151C4C-02D5-4DEE-812D-AF2AE15B0E41" label="Share" paletteLabel="Share" image="NSShareTemplate" id="AZb-8H-4fN">
+                                    <nil key="toolTip"/>
+                                    <size key="minSize" width="28" height="28"/>
+                                    <size key="maxSize" width="28" height="64"/>
+                                    <button key="view" id="4a8-Ux-bAe">
+                                        <rect key="frame" x="5" y="14" width="28" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="bevel" alternateTitle="Share fiddling" bezelStyle="regularSquare" image="NSShareTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jwG-xD-zNH">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system" size="10"/>
+                                        </buttonCell>
+                                    </button>
+                                </toolbarItem>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems>
+                                <toolbarItem reference="HwR-Au-9aW"/>
+                                <toolbarItem reference="AZb-8H-4fN"/>
+                            </defaultToolbarItems>
+                        </toolbar>
                     </window>
                     <connections>
                         <segue destination="9z3-Ob-DSA" kind="relationship" relationship="window.shadowedContentViewController" id="CU6-h8-Vqs"/>
@@ -778,4 +801,7 @@
             <point key="canvasLocation" x="422" y="1704"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSShareTemplate" width="11" height="16"/>
+    </resources>
 </document>
