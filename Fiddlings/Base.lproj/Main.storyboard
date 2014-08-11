@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="14A314h" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="jGA-0Y-lOj">
     <dependencies>
+        <deployment defaultVersion="101000" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6205"/>
         <plugIn identifier="com.apple.WebKitIBPlugin" version="6205"/>
     </dependencies>
@@ -717,13 +718,13 @@
         <scene sceneID="GrA-rL-C16">
             <objects>
                 <viewController id="b55-N2-Kn4" customClass="TextViewController" customModule="Fiddlings" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="hTQ-FO-fco">
+                    <view key="view" id="hTQ-FO-fco" customClass="NSVisualEffectView">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="500"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycY-JD-Yzg">
+                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycY-JD-Yzg">
                                 <rect key="frame" x="20" y="20" width="360" height="460"/>
-                                <clipView key="contentView" id="0Tx-vv-HTX">
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="0Tx-vv-HTX">
                                     <rect key="frame" x="1" y="1" width="223" height="133"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -731,10 +732,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="223" height="458"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="358" height="458"/>
+                                            <size key="minSize" width="360" height="460"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="358" height="458"/>
+                                            <size key="minSize" width="360" height="460"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <connections>
                                                 <outlet property="delegate" destination="b55-N2-Kn4" id="Oep-ab-NcR"/>

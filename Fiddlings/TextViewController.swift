@@ -18,6 +18,8 @@ class TextViewController: NSViewController, NSTextViewDelegate {
         textview.font = NSFont(name: "Menlo", size: 12)
         textview.richText = false
         textview.automaticQuoteSubstitutionEnabled = false
+        
+        textview.backgroundColor = NSColor.clearColor()
     }
     
     @IBOutlet var textview: NSTextView!
