@@ -723,19 +723,19 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycY-JD-Yzg">
-                                <rect key="frame" x="20" y="20" width="360" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="500"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="0Tx-vv-HTX">
                                     <rect key="frame" x="1" y="1" width="223" height="133"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" richText="NO" findStyle="panel" allowsUndo="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="cJA-VW-anN">
-                                            <rect key="frame" x="0.0" y="0.0" width="223" height="458"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="223" height="500"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="360" height="460"/>
+                                            <size key="minSize" width="400" height="500"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="360" height="460"/>
+                                            <size key="minSize" width="400" height="500"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <connections>
                                                 <outlet property="delegate" destination="b55-N2-Kn4" id="Oep-ab-NcR"/>
@@ -755,11 +755,10 @@
                             </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ycY-JD-Yzg" secondAttribute="trailing" constant="20" symbolic="YES" id="1HJ-jv-Q3k"/>
-                            <constraint firstAttribute="bottom" secondItem="ycY-JD-Yzg" secondAttribute="bottom" constant="20" symbolic="YES" id="GX4-6s-bda"/>
-                            <constraint firstItem="ycY-JD-Yzg" firstAttribute="leading" secondItem="hTQ-FO-fco" secondAttribute="leading" constant="20" symbolic="YES" id="MRZ-xd-g1B"/>
-                            <constraint firstItem="ycY-JD-Yzg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hTQ-FO-fco" secondAttribute="leading" constant="20" id="soD-JQ-yV1"/>
-                            <constraint firstItem="ycY-JD-Yzg" firstAttribute="top" secondItem="hTQ-FO-fco" secondAttribute="top" constant="20" symbolic="YES" id="tOJ-9H-x4v"/>
+                            <constraint firstItem="ycY-JD-Yzg" firstAttribute="leading" secondItem="hTQ-FO-fco" secondAttribute="leading" id="ZvE-2j-E9M"/>
+                            <constraint firstItem="ycY-JD-Yzg" firstAttribute="top" secondItem="hTQ-FO-fco" secondAttribute="top" id="ce7-9b-IPQ"/>
+                            <constraint firstAttribute="trailing" secondItem="ycY-JD-Yzg" secondAttribute="trailing" id="q2A-42-rNx"/>
+                            <constraint firstAttribute="bottom" secondItem="ycY-JD-Yzg" secondAttribute="bottom" id="xy8-Kp-rQj"/>
                         </constraints>
                     </view>
                     <connections>
@@ -779,17 +778,17 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <webView translatesAutoresizingMaskIntoConstraints="NO" id="65t-KI-h7o">
-                                <rect key="frame" x="20" y="20" width="360" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="500"/>
                                 <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" plugInsEnabled="NO" javaEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO">
                                     <nil key="identifier"/>
                                 </webPreferences>
                             </webView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="65t-KI-h7o" secondAttribute="trailing" constant="20" symbolic="YES" id="EF6-0v-TYq"/>
-                            <constraint firstAttribute="bottom" secondItem="65t-KI-h7o" secondAttribute="bottom" constant="20" symbolic="YES" id="eSS-31-Poz"/>
-                            <constraint firstItem="65t-KI-h7o" firstAttribute="top" secondItem="xK5-i7-FaU" secondAttribute="top" constant="20" symbolic="YES" id="keM-qv-35f"/>
-                            <constraint firstItem="65t-KI-h7o" firstAttribute="leading" secondItem="xK5-i7-FaU" secondAttribute="leading" constant="20" symbolic="YES" id="mhk-dc-eg2"/>
+                            <constraint firstItem="65t-KI-h7o" firstAttribute="leading" secondItem="xK5-i7-FaU" secondAttribute="leading" id="1ct-1U-Jwt"/>
+                            <constraint firstAttribute="trailing" secondItem="65t-KI-h7o" secondAttribute="trailing" id="7nU-eL-Sdt"/>
+                            <constraint firstItem="65t-KI-h7o" firstAttribute="top" secondItem="xK5-i7-FaU" secondAttribute="top" id="FjZ-CA-7yD"/>
+                            <constraint firstAttribute="bottom" secondItem="65t-KI-h7o" secondAttribute="bottom" id="hra-QX-iGh"/>
                         </constraints>
                     </view>
                     <connections>
@@ -799,7 +798,7 @@
                 </viewController>
                 <customObject id="gdH-a5-VYX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="422" y="1704"/>
+            <point key="canvasLocation" x="422" y="1655"/>
         </scene>
     </scenes>
     <resources>
