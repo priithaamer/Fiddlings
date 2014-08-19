@@ -20,7 +20,7 @@ class Document: NSDocument {
     internal var html: String
     
     override init() {
-        //        super.init()
+        // super.init()
         // Add your subclass-specific initialization here.
         
         self.html = ""
@@ -53,21 +53,15 @@ class Document: NSDocument {
         
         NSLog("dataOfType")
         
-        if let data = NSKeyedArchiver.archivedDataWithRootObject(html) {
-            return data
-        }
-        
-        // Insert code here to write your document to data of the specified type. If outError != nil, ensure that you create and set an appropriate error when returning nil.
-        // You can also choose to override fileWrapperOfType:error:, writeToURL:ofType:error:, or writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
-        outError.memory = NSError.errorWithDomain(NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
-        return nil
+        return NSKeyedArchiver.archivedDataWithRootObject(html)
     }
+    
     
     override func readFromData(data: NSData?, ofType typeName: String?, error outError: NSErrorPointer) -> Bool {
         
         NSLog("readFromData")
         
-        if let deserializedHtml = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? String {
+        if let deserializedHtml = NSKeyedUnarchiver.unarchiveObjectWithData(data!) as? String {
             html = deserializedHtml
             
             // delegate?.listDocumentDidChangeContents(self)

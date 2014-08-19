@@ -1,4 +1,4 @@
-//
+
 //  SplitViewController.swift
 //  Fiddlings
 //
@@ -16,7 +16,7 @@ class SplitViewController: NSSplitViewController {
     
     weak var document: Document! {
         didSet {
-            if !document { return }
+            if !(document != nil) { return }
         
             NSLog("Set document in split view controller")
             
@@ -24,7 +24,7 @@ class SplitViewController: NSSplitViewController {
             self.textviewController = self.childViewControllers[0] as? TextViewController
             self.previewController = self.childViewControllers[1] as? PreviewController
             
-            //            document.delegate = self
+            // document.delegate = self
         
             reloadFromDocument()
         }

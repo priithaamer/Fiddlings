@@ -6,6 +6,7 @@ Feature list:
 - Quick look support
 - Webview erinevatel suurustel resizemine
 - SCSS support
+- Snapshots oleks hea et proovida erinevaid variante mingist asjast
 
 Issues:
 
