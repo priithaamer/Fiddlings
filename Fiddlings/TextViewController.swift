@@ -7,8 +7,11 @@
 //
 
 import Cocoa
+import CodeEditorKit
 
 class TextViewController: NSViewController, NSTextViewDelegate {
+    
+    @IBOutlet var textview: CodeEditorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +25,6 @@ class TextViewController: NSViewController, NSTextViewDelegate {
         textview.backgroundColor = NSColor.clearColor()
     }
     
-    @IBOutlet var textview: NSTextView!
-    
     // NSTextViewDelegate
     
     func changeText(str:String) {
@@ -34,6 +35,9 @@ class TextViewController: NSViewController, NSTextViewDelegate {
         if let parent = self.parentViewController as? SplitViewController {
             if let str = textview?.string {
                 parent.updateHTML(str)
+                
+//                var textStorage = textview.textStorage
+//                textStorage.addAttribute(NSForegroundColorAttributeName, value: NSColor.redColor(), range: NSMakeRange(1, 9))
             }
         }
         
