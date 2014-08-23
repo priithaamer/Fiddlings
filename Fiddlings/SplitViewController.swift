@@ -17,7 +17,7 @@ class SplitViewController: NSSplitViewController {
     weak var document: Document! {
         didSet {
             if !(document != nil) { return }
-        
+            
             NSLog("Set document in split view controller")
             
             // TODO: It is not correct to set the controllers here, find a better place for this
@@ -25,7 +25,7 @@ class SplitViewController: NSSplitViewController {
             self.previewController = self.childViewControllers[1] as? PreviewController
             
             // document.delegate = self
-        
+            
             reloadFromDocument()
         }
     }

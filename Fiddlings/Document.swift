@@ -27,26 +27,26 @@ class Document: NSDocument {
         
         super.init()
     }
-
+    
     override func windowControllerDidLoadNib(aController: NSWindowController) {
         super.windowControllerDidLoadNib(aController)
-                                    
+        
         // Add any code here that needs to be executed once the windowController has loaded the document's window.
-                                    
+        
     }
-
+    
     override class func autosavesInPlace() -> Bool {
         return true
     }
-
+    
     override func makeWindowControllers() {
         // Returns the Storyboard that contains your Document window.
-                                    
-
+        
+        
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         let windowController = storyboard.instantiateInitialController() as NSWindowController
         self.addWindowController(windowController)
-                                    
+        
     }
     
     override func dataOfType(typeName: String?, error outError: NSErrorPointer) -> NSData? {
@@ -75,6 +75,6 @@ class Document: NSDocument {
         outError.memory = NSError.errorWithDomain(NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
         return false
     }
-
+    
 }
-                                
+

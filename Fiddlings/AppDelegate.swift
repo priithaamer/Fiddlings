@@ -16,7 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         for window in NSApplication.sharedApplication().windows as [NSWindow] {
             window.contentViewController = nil
             window.releasedWhenClosed = true
-            window.windowController().close()
+            window.windowController()?.close()
         }
         
         if let cntrlr = NSDocumentController.sharedDocumentController() as? NSDocumentController {
@@ -24,5 +24,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             cntrlr.openUntitledDocumentAndDisplay(true, error: &error)
         }
     }
-
+    
 }

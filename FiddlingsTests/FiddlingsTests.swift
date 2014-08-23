@@ -2,10 +2,11 @@
 //  FiddlingsTests.swift
 //  FiddlingsTests
 //
-//  Created by Priit Haamer on 08.06.14.
+//  Created by Priit Haamer on 23.08.14.
 //  Copyright (c) 2014 Priit Haamer. All rights reserved.
 //
 
+import Cocoa
 import XCTest
 
 class FiddlingsTests: XCTestCase {

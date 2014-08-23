@@ -7,12 +7,11 @@
 //
 
 import Cocoa
-import CodeEditorKit
 
 class TextViewController: NSViewController, NSTextViewDelegate {
     
     @IBOutlet var textview: CodeEditorView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -36,16 +35,16 @@ class TextViewController: NSViewController, NSTextViewDelegate {
             if let str = textview?.string {
                 parent.updateHTML(str)
                 
-//                var textStorage = textview.textStorage
-//                textStorage.addAttribute(NSForegroundColorAttributeName, value: NSColor.redColor(), range: NSMakeRange(1, 9))
+                //                var textStorage = textview.textStorage
+                //                textStorage.addAttribute(NSForegroundColorAttributeName, value: NSColor.redColor(), range: NSMakeRange(1, 9))
             }
         }
         
-//        if let prc = self.parentViewController.childViewControllers[1] as? PreviewController {
-//            if var str = textview?.string {
-//                prc.updateWebView(str)
-//            }
-//        }
+        //        if let prc = self.parentViewController.childViewControllers[1] as? PreviewController {
+        //            if var str = textview?.string {
+        //                prc.updateWebView(str)
+        //            }
+        //        }
     }
     
 }
