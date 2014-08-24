@@ -40,15 +40,5 @@ public class CodeEditorView: NSTextView {
             
             self.insertText(foo)
         }
-        
-        var parser = HTMLParser(delegate: self)
-        var err : NSError? = nil
-        
-        //parse string (which populates entries and attributesForEntry
-        var result : PKAssembly? = parser.parseString(self.string, error: &err) as? PKAssembly
-    }
-    
-    func parser(parser: HTMLParser, didMatchStyleElement: PKAssembly) {
-        NSLog("did match stylesheet")
     }
 }
