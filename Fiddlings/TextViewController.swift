@@ -45,6 +45,7 @@ class TextViewController: NSViewController, NSTextViewDelegate, NSTextStorageDel
         }
     }
     
+    /**
     func textStorageDidProcessEditing(notification: NSNotification!) {
         var err: NSError? = nil
         
@@ -82,6 +83,6 @@ class TextViewController: NSViewController, NSTextViewDelegate, NSTextStorageDel
     //    func parser(parser: HTMLParser, didMatchStyleElement: PKAssembly) {
     //        NSLog("did match stylesheet")
     //    }
-
+    **/
     
 }
