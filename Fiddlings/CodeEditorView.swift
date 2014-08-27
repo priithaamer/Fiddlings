@@ -10,6 +10,21 @@ import Cocoa
 
 public class CodeEditorView: NSTextView {
 
+    override public func shouldChangeTextInRange(affectedCharRange: NSRange, replacementString: String!) -> Bool {
+        
+        if replacementString == "(" {
+            self.insertText(")")
+            self.setSelectedRange(affectedCharRange)
+        }
+        
+        if replacementString == "{" {
+            self.insertText("}")
+            self.setSelectedRange(affectedCharRange)
+        }
+        
+        return true
+    }
+    
     override public func insertTab(sender: AnyObject!) {
         self.insertText("  ")
     }

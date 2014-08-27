@@ -46,6 +46,9 @@ class TextViewController: NSViewController, NSTextViewDelegate, NSTextStorageDel
     }
     
     /**
+    
+    // Noodleeditis oli selline asi
+    // [self performSelector:@selector(parse:) withObject:self afterDelay:0.0];
     func textStorageDidProcessEditing(notification: NSNotification!) {
         var err: NSError? = nil
         

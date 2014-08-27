@@ -45,4 +45,15 @@ class CodeEditorKitTests: XCTestCase {
         XCTAssertEqual(self.editor.string, "  Foo\n  bar", "did not match")
     }
     
+    func testAutoInsertAutoBracket() {
+        self.editor.insertText("(")
+        
+        XCTAssertEqual(self.editor.string, "()", "did not add matching bracket")
+    }
+    
+    func testSetCorrectPositionAfterAutoBracket() {
+        self.editor.insertText("(")
+        
+        XCTAssertEqual(self.editor.selectedRange().location, 1, "did not set correct location")
+    }
 }
