@@ -2,73 +2,26 @@
 //  WindowController.swift
 //  Fiddlings
 //
-//  Created by Priit Haamer on 22.07.14.
+//  Created by Priit Haamer on 21.09.14.
 //  Copyright (c) 2014 Priit Haamer. All rights reserved.
 //
 
 import Cocoa
 
 class WindowController: NSWindowController {
-    // MARK: Types
+
+    override func windowDidLoad() {
+        super.windowDidLoad()
     
-    //    struct SegueIdentifiers {
-    //        static let showAddItemViewController = "showAddItemViewController"
-    //    }
-    
-    // MARK: IBOutlets
-    //
-    //    @IBOutlet
-    //    var shareButton: NSButton!
-    
-    // MARK: View Life Cycle
-    
-    //    override func awakeFromNib() {
-    //        super.awakeFromNib()
-    //
-    //        let action = Int(NSEventMask.LeftMouseDownMask.toRaw())
-    //        shareButton.sendActionOn(action)
-    //    }
-    
-    // MARK: Overrides
+        // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    }
     
     override var document: AnyObject! {
         didSet {
-            //            NSLog("did set document")
-            //            let listViewController = window.contentViewController as ListViewController
-            //            listViewController.document = document as? ListDocument
-            
-            if let splitViewController = window.contentViewController as? SplitViewController {
-                splitViewController.document = document as? Document
+            if let viewController = window.contentViewController as? ViewController {
+                viewController.representedObject = document
             }
-            
         }
     }
-    
-    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject!) {
-        //        super.prepareForSegue(segue, sender: sender)
-        
-        NSLog("Prepare for seque!!!")
-        //        if segue.identifier == SegueIdentifiers.showAddItemViewController {
-        //            let listViewController = window.contentViewController as ListViewController
-        //
-        //            let addItemViewController = segue.destinationController as AddItemViewController
-        //
-        //            addItemViewController.delegate = listViewController
-        //        }
-    }
-    
-    
-    // MARK: IBActions
-    
-    //    @IBAction
-    //    func shareDocument(sender: NSButton) {
-    //        if let listDocument = document as? ListDocument {
-    //            let listContents = ListFormatting.stringFromListItems(listDocument.list.items)
-    //
-    //            let sharingServicePicker = NSSharingServicePicker(items: [listContents])
-    //
-    //            let preferredEdge = NSRectEdge(CGRectEdge.MinYEdge.toRaw())
-    //            sharingServicePicker.showRelativeToRect(NSZeroRect, ofView: sender, preferredEdge: preferredEdge)
-    //        }
-    //    }
+
 }

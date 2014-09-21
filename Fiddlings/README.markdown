@@ -10,9 +10,9 @@ Feature list:
 
 Issues:
 
+- Kirjutatav / loetav fail peab olema JSON formaadis
 - Korralik koodieditor
 - Skroll positsiooni tuleb webviews hoida
-- Split view on alguses collapsed tekstieditori koha pealt
 - Default akna suurus rakenduse laadimisel
 - Dokumentide versioonimine
 - Includetud CSS / JS jm faili ei tohi iga muudatuse peale reloadida

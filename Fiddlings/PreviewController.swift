@@ -2,7 +2,7 @@
 //  PreviewController.swift
 //  Fiddlings
 //
-//  Created by Priit Haamer on 23.07.14.
+//  Created by Priit Haamer on 16.09.14.
 //  Copyright (c) 2014 Priit Haamer. All rights reserved.
 //
 
@@ -16,23 +16,20 @@ class PreviewController: NSViewController {
     }
     
     // MARK: IBOutlets
-    @IBOutlet var webview: WebView?
+    @IBOutlet var webview: WebView!
     
-    //    override var representedObject: AnyObject? {
-    //        didSet {
-    //            // Update the view, if already loaded.
-    //        }
-    //
-    //    }
-    //
-    //    func myfunc() -> String {
-    //        return "Foo"
-    //    }
+    override var representedObject: AnyObject? {
+        didSet {
+            if let document = representedObject as? Document {
+                updateWebView(document.html)
+            }
+            
+        }
+    }
     
     func updateWebView(str: String) {
-        webview?.mainFrame.loadHTMLString(str, baseURL:nil)
+        webview.mainFrame.loadHTMLString(str, baseURL:nil)
     }
     
 }
-
 

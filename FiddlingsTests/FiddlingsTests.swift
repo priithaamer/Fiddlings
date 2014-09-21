@@ -2,7 +2,7 @@
 //  FiddlingsTests.swift
 //  FiddlingsTests
 //
-//  Created by Priit Haamer on 23.08.14.
+//  Created by Priit Haamer on 16.09.14.
 //  Copyright (c) 2014 Priit Haamer. All rights reserved.
 //
 
