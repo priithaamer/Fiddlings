@@ -12,8 +12,12 @@ class TextViewController: NSViewController, NSTextViewDelegate, NSTextStorageDel
     
     @IBOutlet var textview: CodeEditorView!
     
+    var htmlparser: HTMLParser!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        htmlparser = HTMLParser(delegate: self)
         
         textview.font = NSFont(name: "Menlo", size: 12)
         textview.textColor = NSColor.whiteColor()

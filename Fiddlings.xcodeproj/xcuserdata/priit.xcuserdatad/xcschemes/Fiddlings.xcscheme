@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0600"
+   LastUpgradeVersion = "0610"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "38CCC6D719A8B0F500501CA9"
+               BlueprintIdentifier = "389E745B19C8A54C00B18AF1"
                BuildableName = "Fiddlings.app"
                BlueprintName = "Fiddlings"
                ReferencedContainer = "container:Fiddlings.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "38CCC6EB19A8B0F500501CA9"
+               BlueprintIdentifier = "389E746F19C8A54C00B18AF1"
                BuildableName = "FiddlingsTests.xctest"
                BlueprintName = "FiddlingsTests"
                ReferencedContainer = "container:Fiddlings.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "38CCC6EB19A8B0F500501CA9"
+               BlueprintIdentifier = "389E746F19C8A54C00B18AF1"
                BuildableName = "FiddlingsTests.xctest"
                BlueprintName = "FiddlingsTests"
                ReferencedContainer = "container:Fiddlings.xcodeproj">
@@ -56,7 +56,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "38CCC6D719A8B0F500501CA9"
+            BlueprintIdentifier = "389E745B19C8A54C00B18AF1"
             BuildableName = "Fiddlings.app"
             BlueprintName = "Fiddlings"
             ReferencedContainer = "container:Fiddlings.xcodeproj">
@@ -75,7 +75,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "38CCC6D719A8B0F500501CA9"
+            BlueprintIdentifier = "389E745B19C8A54C00B18AF1"
             BuildableName = "Fiddlings.app"
             BlueprintName = "Fiddlings"
             ReferencedContainer = "container:Fiddlings.xcodeproj">
@@ -93,7 +93,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "38CCC6D719A8B0F500501CA9"
+            BlueprintIdentifier = "389E745B19C8A54C00B18AF1"
             BuildableName = "Fiddlings.app"
             BlueprintName = "Fiddlings"
             ReferencedContainer = "container:Fiddlings.xcodeproj">
