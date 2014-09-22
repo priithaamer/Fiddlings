@@ -9,7 +9,7 @@
 import Cocoa
 import WebKit
 
-class PreviewController: NSViewController {
+class PreviewController: NSViewController, DocumentDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,8 @@ class PreviewController: NSViewController {
         didSet {
             if let document = representedObject as? Document {
                 updateWebView(document.html)
+                
+                document.delegate = self
             }
             
         }
@@ -31,5 +33,8 @@ class PreviewController: NSViewController {
         webview.mainFrame.loadHTMLString(str, baseURL:nil)
     }
     
+    func htmlDidChange(document: Document) {
+        updateWebView(document.html)
+    }
 }
 

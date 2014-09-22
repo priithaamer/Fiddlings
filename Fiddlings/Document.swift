@@ -8,9 +8,19 @@
 
 import Cocoa
 
+protocol DocumentDelegate {
+    func htmlDidChange(document: Document)
+}
+
 class Document: NSDocument {
 
-    internal var html = ""
+    internal var delegate: DocumentDelegate?
+    
+    internal var html:String = "" {
+        didSet {
+            delegate?.htmlDidChange(self)
+        }
+    }
     
     override init() {
         super.init()
@@ -36,31 +46,34 @@ class Document: NSDocument {
     override func dataOfType(typeName: String?, error outError: NSErrorPointer) -> NSData? {
         // Insert code here to write your document to data of the specified type. If outError != nil, ensure that you create and set an appropriate error when returning nil.
         
-//        return NSKeyedArchiver.archivedDataWithRootObject(html)
+        //        return NSKeyedArchiver.archivedDataWithRootObject(html)
         
         // You can also choose to override fileWrapperOfType:error:, writeToURL:ofType:error:, or writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
         outError.memory = NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
         return nil
     }
 
-    override func readFromData(data: NSData?, ofType typeName: String?, error outError: NSErrorPointer) -> Bool {
-        // Insert code here to read your document from the given data of the specified type. If outError != nil, ensure that you create and set an appropriate error when returning false.
-        
-        
-//        if let deserializedHtml = NSKeyedUnarchiver.unarchiveObjectWithData(data!) as? String {
-//            html = deserializedHtml
-//            
-//            // delegate?.listDocumentDidChangeContents(self)
-//            
-//            return true
-//        }
-        
-        // You can also choose to override readFromFileWrapper:ofType:error: or readFromURL:ofType:error: instead.
-        // If you override either of these, you should also override -isEntireFileLoaded to return NO if the contents are lazily loaded.
-        outError.memory = NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
-        return false
+    override func fileWrapperOfType(typeName: String!, error outError: NSErrorPointer) -> NSFileWrapper! {
+        let wrapper = NSFileWrapper(regularFileWithContents: NSData())
+        return wrapper
     }
 
+    override func readFromFileWrapper(fileWrapper: NSFileWrapper!, ofType typeName: String!, error outError: NSErrorPointer) -> Bool {
+        if let data = fileWrapper.regularFileContents {
+            var jsonerror: NSError?
+            
+            let json = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonerror) as NSDictionary
+            
+            if json["html"] is String {
+                html = json["html"] as String
+            }
+            
+            return true
+        } else {
+            outError.memory = NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
+            return false
+        }
+    }
 
 }
 

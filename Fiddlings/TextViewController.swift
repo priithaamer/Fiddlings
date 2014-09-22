@@ -14,10 +14,14 @@ class TextViewController: NSViewController, NSTextViewDelegate, NSTextStorageDel
     
     var htmlparser: HTMLParser!
     
+    var document: Document!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         htmlparser = HTMLParser(delegate: self)
+        
+        textview.textStorage.delegate = self
         
         textview.font = NSFont(name: "Menlo", size: 12)
         textview.textColor = NSColor.whiteColor()
@@ -25,27 +29,20 @@ class TextViewController: NSViewController, NSTextViewDelegate, NSTextStorageDel
     
     override var representedObject: AnyObject? {
         didSet {
-            if let document = representedObject as? Document {
-                textview.string = document.html
+            if let doc = representedObject as? Document {
+                document = doc
+                textview.string = doc.html
             }
         }
     }
     
+    func textStorageDidProcessEditing(notification: NSNotification!) {
+        document.html = textview.string
+    }
     
     /**
     
     var htmlparser: HTMLParser!
-    
-    func textDidChange(notification: NSNotification!) {
-        if let parent = self.parentViewController as? SplitViewController {
-            if let str = textview?.string {
-                parent.updateHTML(str)
-            }
-        }
-    }
-    **/
-    
-    /**
     
     // Noodleeditis oli selline asi
     // [self performSelector:@selector(parse:) withObject:self afterDelay:0.0];

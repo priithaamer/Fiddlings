@@ -73,6 +73,7 @@
 		38E1D40819CF21870024FC34 /* HTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLParser.m; sourceTree = "<group>"; };
 		38E1D40919CF21870024FC34 /* HTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLParser.h; sourceTree = "<group>"; };
 		38E1D40B19CF21900024FC34 /* FiddlingsTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FiddlingsTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		38FD312519D09317000D0675 /* File read and write.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "File read and write.playground"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +100,7 @@
 		389E745319C8A54C00B18AF1 = {
 			isa = PBXGroup;
 			children = (
+				38FD312519D09317000D0675 /* File read and write.playground */,
 				38E1D40219CF20720024FC34 /* PEGKit.framework */,
 				389E748219C8AEF600B18AF1 /* WebKit.framework */,
 				389E745E19C8A54C00B18AF1 /* Fiddlings */,
