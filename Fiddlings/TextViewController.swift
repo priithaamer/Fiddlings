@@ -25,6 +25,10 @@ class TextViewController: NSViewController, NSTextViewDelegate, NSTextStorageDel
         
         textview.font = NSFont(name: "Menlo", size: 12)
         textview.textColor = NSColor.whiteColor()
+        textview.automaticQuoteSubstitutionEnabled = false
+        textview.automaticDashSubstitutionEnabled = false
+        textview.automaticTextReplacementEnabled = false
+        textview.automaticSpellingCorrectionEnabled = false
     }
     
     override var representedObject: AnyObject? {
