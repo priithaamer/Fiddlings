@@ -22,6 +22,10 @@ class Document: NSDocument {
         }
     }
     
+    internal var css:String = ""
+    
+    internal var javascript:String = ""
+    
     override init() {
         super.init()
         // Add your subclass-specific initialization here.
@@ -43,19 +47,19 @@ class Document: NSDocument {
         self.addWindowController(windowController)
     }
 
-    override func dataOfType(typeName: String?, error outError: NSErrorPointer) -> NSData? {
-        // Insert code here to write your document to data of the specified type. If outError != nil, ensure that you create and set an appropriate error when returning nil.
-        
-        //        return NSKeyedArchiver.archivedDataWithRootObject(html)
-        
-        // You can also choose to override fileWrapperOfType:error:, writeToURL:ofType:error:, or writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
-        outError.memory = NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
-        return nil
-    }
-
     override func fileWrapperOfType(typeName: String!, error outError: NSErrorPointer) -> NSFileWrapper! {
-        let wrapper = NSFileWrapper(regularFileWithContents: NSData())
-        return wrapper
+        let data = [
+            "version": "1.0",
+            "html": html,
+            "css": css,
+            "javascript": javascript
+        ]
+        
+        var jsonError: NSError?
+        
+        let json:NSData = NSJSONSerialization.dataWithJSONObject(data, options:nil, error: &jsonError)!
+        
+        return NSFileWrapper(regularFileWithContents: json)
     }
 
     override func readFromFileWrapper(fileWrapper: NSFileWrapper!, ofType typeName: String!, error outError: NSErrorPointer) -> Bool {

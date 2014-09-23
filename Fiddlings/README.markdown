@@ -10,13 +10,13 @@ Feature list:
 
 Issues:
 
-- Kirjutatav / loetav fail peab olema JSON formaadis
 - Korralik koodieditor
 - Skroll positsiooni tuleb webviews hoida
 - Default akna suurus rakenduse laadimisel
 - Dokumentide versioonimine
 - Includetud CSS / JS jm faili ei tohi iga muudatuse peale reloadida
 - Webview skroll ei bounce ja on aeglasevõitu
+- Rakenduse quit peab säilitama dokumendi
 
 Koodieditor:
 
@@ -38,3 +38,13 @@ Testing:
 
 - http://blog.typpz.com/2014/04/27/xcode-5-test-uitableview-with-xctest-framework/ üks võimalik näide kuidas UI-d testida saab
 - https://github.com/benzguo/BZGFormField/blob/master/BZGFormFieldTests/BZGFormFieldTests.m näide inputi testimisest
+- https://gist.github.com/turowicz/e7746a9c035356f9483d dokument peaks sisaldama structi, mis oleks ise serialiseeritav. Sedasi oleks lihtsam testida.
+
+Teenused veebis:
+
+- http://jsfiddle.net
+- http://codepen.io
+- http://cssdeck.com
+- http://jsbin.com
+- http://dabblet.com
+

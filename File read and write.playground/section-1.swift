@@ -15,3 +15,15 @@ if let data = json.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion:
 }
 
 
+var hash = [
+    "version": "1.0",
+    "html": "Das html",
+    "css": "That css",
+    "javascript": "Uuh, javascript!"
+]
+
+var err: NSError?
+
+let hashjson:NSData = NSJSONSerialization.dataWithJSONObject(hash, options:nil, error: &err)!
+
+let jsonstr:String = NSString(data: hashjson, encoding: NSUTF8StringEncoding)!
