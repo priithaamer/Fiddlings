@@ -13,7 +13,6 @@ Issues:
 - Korralik koodieditor
 - Skroll positsiooni tuleb webviews hoida
 - Default akna suurus rakenduse laadimisel
-- Dokumentide versioonimine
 - Includetud CSS / JS jm faili ei tohi iga muudatuse peale reloadida
 - Webview skroll ei bounce ja on aeglasevõitu
 - Rakenduse quit peab säilitama dokumendi

@@ -10,6 +10,10 @@ import Cocoa
 
 protocol DocumentDelegate {
     func htmlDidChange(document: Document)
+    
+    func cssDidChange(document: Document)
+    
+    func javascriptDidChange(document: Document)
 }
 
 class Document: NSDocument {
@@ -22,9 +26,17 @@ class Document: NSDocument {
         }
     }
     
-    internal var css:String = ""
+    internal var css:String = "" {
+        didSet {
+            delegate?.cssDidChange(self)
+        }
+    }
     
-    internal var javascript:String = ""
+    internal var javascript:String = "" {
+        didSet {
+            delegate?.javascriptDidChange(self)
+        }
+    }
     
     override init() {
         super.init()
@@ -70,6 +82,14 @@ class Document: NSDocument {
             
             if json["html"] is String {
                 html = json["html"] as String
+            }
+            
+            if json["css"] is String {
+                css = json["css"] as String
+            }
+            
+            if json["javascript"] is String {
+                javascript = json["javascript"] as String
             }
             
             return true

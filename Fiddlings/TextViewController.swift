@@ -12,6 +12,10 @@ class TextViewController: NSViewController, NSTextViewDelegate, NSTextStorageDel
     
     @IBOutlet var textview: CodeEditorView!
     
+    @IBOutlet var cssEditor: CodeEditorView!
+    
+    @IBOutlet var javascriptEditor: CodeEditorView!
+    
     var htmlparser: HTMLParser!
     
     var document: Document!
@@ -29,6 +33,24 @@ class TextViewController: NSViewController, NSTextViewDelegate, NSTextStorageDel
         textview.automaticDashSubstitutionEnabled = false
         textview.automaticTextReplacementEnabled = false
         textview.automaticSpellingCorrectionEnabled = false
+        
+        cssEditor.textStorage.delegate = self
+        
+        cssEditor.font = NSFont(name: "Menlo", size: 12)
+        cssEditor.textColor = NSColor.whiteColor()
+        cssEditor.automaticQuoteSubstitutionEnabled = false
+        cssEditor.automaticDashSubstitutionEnabled = false
+        cssEditor.automaticTextReplacementEnabled = false
+        cssEditor.automaticSpellingCorrectionEnabled = false
+        
+        javascriptEditor.textStorage.delegate = self
+        
+        javascriptEditor.font = NSFont(name: "Menlo", size: 12)
+        javascriptEditor.textColor = NSColor.whiteColor()
+        javascriptEditor.automaticQuoteSubstitutionEnabled = false
+        javascriptEditor.automaticDashSubstitutionEnabled = false
+        javascriptEditor.automaticTextReplacementEnabled = false
+        javascriptEditor.automaticSpellingCorrectionEnabled = false
     }
     
     override var representedObject: AnyObject? {
@@ -36,12 +58,24 @@ class TextViewController: NSViewController, NSTextViewDelegate, NSTextStorageDel
             if let doc = representedObject as? Document {
                 document = doc
                 textview.string = doc.html
+                cssEditor.string = doc.css
+                javascriptEditor.string = doc.javascript
             }
         }
     }
     
     func textStorageDidProcessEditing(notification: NSNotification!) {
-        document.html = textview.string
+        if notification.object as NSTextStorage == textview.textStorage {
+            document.html = textview.string
+        }
+        
+        if notification.object as NSTextStorage == cssEditor.textStorage {
+            document.css = cssEditor.string
+        }
+        
+        if notification.object as NSTextStorage == javascriptEditor.textStorage {
+//            document.javascript = javascriptEditor.string
+        }
     }
     
     /**

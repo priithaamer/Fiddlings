@@ -21,7 +21,7 @@ class PreviewController: NSViewController, DocumentDelegate {
     override var representedObject: AnyObject? {
         didSet {
             if let document = representedObject as? Document {
-                updateWebView(document.html)
+                updateWebView(document.html, css: document.css, javascript: document.javascript)
                 
                 document.delegate = self
             }
@@ -29,12 +29,22 @@ class PreviewController: NSViewController, DocumentDelegate {
         }
     }
     
-    func updateWebView(str: String) {
+    func updateWebView(html: String, css: String, javascript: String) {
+        var str = "<html><style>\(css)</style><body>\(html)<script type=\"text/javascript\">\(javascript)</script></body></html>"
+        
         webview.mainFrame.loadHTMLString(str, baseURL:nil)
     }
     
     func htmlDidChange(document: Document) {
-        updateWebView(document.html)
+        updateWebView(document.html, css: document.css, javascript: document.javascript)
+    }
+    
+    func cssDidChange(document: Document) {
+        updateWebView(document.html, css: document.css, javascript: document.javascript)
+    }
+    
+    func javascriptDidChange(document: Document) {
+        updateWebView(document.html, css: document.css, javascript: document.javascript)
     }
 }
 
