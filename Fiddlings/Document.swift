@@ -51,15 +51,15 @@ class Document: NSDocument {
     override class func autosavesInPlace() -> Bool {
         return true
     }
-
+    
     override func makeWindowControllers() {
         // Returns the Storyboard that contains your Document window.
-        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)!
         let windowController = storyboard.instantiateControllerWithIdentifier("Document Window Controller") as NSWindowController
         self.addWindowController(windowController)
     }
-
-    override func fileWrapperOfType(typeName: String!, error outError: NSErrorPointer) -> NSFileWrapper! {
+    
+    override func fileWrapperOfType(typeName: String, error outError: NSErrorPointer) -> NSFileWrapper? {
         let data = [
             "version": "1.0",
             "html": html,
@@ -73,8 +73,8 @@ class Document: NSDocument {
         
         return NSFileWrapper(regularFileWithContents: json)
     }
-
-    override func readFromFileWrapper(fileWrapper: NSFileWrapper!, ofType typeName: String!, error outError: NSErrorPointer) -> Bool {
+    
+    override func readFromFileWrapper(fileWrapper: NSFileWrapper, ofType typeName: String, error outError: NSErrorPointer) -> Bool {
         if let data = fileWrapper.regularFileContents {
             var jsonerror: NSError?
             

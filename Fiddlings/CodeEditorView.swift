@@ -40,7 +40,7 @@ public class CodeEditorView: NSTextView {
         
         r = self.selectionRangeForProposedRange(r, granularity: .SelectByParagraph)
         
-        let previousLine = self.textStorage.mutableString.substringWithRange(r)
+        let previousLine = self.textStorage!.mutableString.substringWithRange(r)
         
         var j = 0
         let previousLineLength = previousLine.lengthOfBytesUsingEncoding(NSUnicodeStringEncoding)
@@ -51,7 +51,7 @@ public class CodeEditorView: NSTextView {
         }
         
         if (j > 0) {
-            let foo = self.textStorage.mutableString.substringWithRange(NSMakeRange(r.location, j))
+            let foo = self.textStorage!.mutableString.substringWithRange(NSMakeRange(r.location, j))
             
             self.insertText(foo)
         }

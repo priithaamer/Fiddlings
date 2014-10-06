@@ -16,9 +16,9 @@ class WindowController: NSWindowController {
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     }
     
-    override var document: AnyObject! {
+    override var document: AnyObject? {
         didSet {
-            if let viewController = window.contentViewController as? ViewController {
+            if let viewController = window!.contentViewController {
                 viewController.representedObject = document
             }
         }

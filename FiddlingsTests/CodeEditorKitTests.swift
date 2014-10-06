@@ -26,7 +26,7 @@ class CodeEditorKitTests: XCTestCase {
     func testInsertTabAddsTwoSpaces() {
         self.editor.insertTab(self.editor)
         
-        XCTAssertEqual(self.editor.string, "  ", "did not add two spaces")
+        XCTAssertEqual(self.editor.string!, "  ", "did not add two spaces")
     }
     
     func testInsertTabAddsTwoSpacesAnywhere() {
@@ -34,7 +34,7 @@ class CodeEditorKitTests: XCTestCase {
         self.editor.setSelectedRange(NSRange(location: 3, length: 0))
         self.editor.insertTab(self.editor)
         
-        XCTAssertEqual(self.editor.string, "Foo  bar", "did not have two spaces between")
+        XCTAssertEqual(self.editor.string!, "Foo  bar", "did not have two spaces between")
     }
     
     func testInsertNewLineKeepsIndentation() {
@@ -42,13 +42,13 @@ class CodeEditorKitTests: XCTestCase {
         self.editor.setSelectedRange(NSRange(location: 5, length: 0))
         self.editor.insertNewline(self.editor)
         
-        XCTAssertEqual(self.editor.string, "  Foo\n  bar", "did not match")
+        XCTAssertEqual(self.editor.string!, "  Foo\n  bar", "did not match")
     }
     
     func testAutoInsertAutoBracket() {
         self.editor.insertText("(")
         
-        XCTAssertEqual(self.editor.string, "()", "did not add matching bracket")
+        XCTAssertEqual(self.editor.string!, "()", "did not add matching bracket")
     }
     
     func testSetCorrectPositionAfterAutoBracket() {

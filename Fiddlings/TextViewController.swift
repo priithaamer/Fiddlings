@@ -25,7 +25,7 @@ class TextViewController: NSViewController, NSTextViewDelegate, NSTextStorageDel
         
         htmlparser = HTMLParser(delegate: self)
         
-        textview.textStorage.delegate = self
+        textview.textStorage!.delegate = self
         
         textview.font = NSFont(name: "Menlo", size: 12)
         textview.textColor = NSColor.whiteColor()
@@ -34,7 +34,7 @@ class TextViewController: NSViewController, NSTextViewDelegate, NSTextStorageDel
         textview.automaticTextReplacementEnabled = false
         textview.automaticSpellingCorrectionEnabled = false
         
-        cssEditor.textStorage.delegate = self
+        cssEditor.textStorage!.delegate = self
         
         cssEditor.font = NSFont(name: "Menlo", size: 12)
         cssEditor.textColor = NSColor.whiteColor()
@@ -43,7 +43,7 @@ class TextViewController: NSViewController, NSTextViewDelegate, NSTextStorageDel
         cssEditor.automaticTextReplacementEnabled = false
         cssEditor.automaticSpellingCorrectionEnabled = false
         
-        javascriptEditor.textStorage.delegate = self
+        javascriptEditor.textStorage!.delegate = self
         
         javascriptEditor.font = NSFont(name: "Menlo", size: 12)
         javascriptEditor.textColor = NSColor.whiteColor()
@@ -65,15 +65,15 @@ class TextViewController: NSViewController, NSTextViewDelegate, NSTextStorageDel
     }
     
     func textStorageDidProcessEditing(notification: NSNotification!) {
-        if notification.object as NSTextStorage == textview.textStorage {
-            document.html = textview.string
+        if notification.object as NSTextStorage == textview.textStorage! {
+            document.html = textview.string!
         }
         
-        if notification.object as NSTextStorage == cssEditor.textStorage {
-            document.css = cssEditor.string
+        if notification.object as NSTextStorage == cssEditor.textStorage! {
+            document.css = cssEditor.string!
         }
         
-        if notification.object as NSTextStorage == javascriptEditor.textStorage {
+        if notification.object as NSTextStorage == javascriptEditor.textStorage! {
 //            document.javascript = javascriptEditor.string
         }
     }
