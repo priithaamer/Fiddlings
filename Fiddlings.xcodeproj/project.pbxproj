@@ -14,8 +14,6 @@
 		389E746B19C8A54C00B18AF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 389E746919C8A54C00B18AF1 /* Main.storyboard */; };
 		389E747719C8A54C00B18AF1 /* FiddlingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E747619C8A54C00B18AF1 /* FiddlingsTests.swift */; };
 		389E748319C8AEF600B18AF1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 389E748219C8AEF600B18AF1 /* WebKit.framework */; };
-		38CE5DF819CE1A30009892D3 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CE5DF619CE1A30009892D3 /* PreviewController.swift */; };
-		38CE5DF919CE1A30009892D3 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CE5DF719CE1A30009892D3 /* TextViewController.swift */; };
 		38CE5DFB19CE1AA3009892D3 /* README.markdown in Sources */ = {isa = PBXBuildFile; fileRef = 38CE5DFA19CE1AA3009892D3 /* README.markdown */; };
 		38CE5DFD19CE1B32009892D3 /* CodeEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CE5DFC19CE1B32009892D3 /* CodeEditorView.swift */; };
 		38CE5DFF19CE273A009892D3 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CE5DFE19CE273A009892D3 /* WindowController.swift */; };
@@ -62,8 +60,6 @@
 		389E747519C8A54C00B18AF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		389E747619C8A54C00B18AF1 /* FiddlingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiddlingsTests.swift; sourceTree = "<group>"; };
 		389E748219C8AEF600B18AF1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		38CE5DF619CE1A30009892D3 /* PreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
-		38CE5DF719CE1A30009892D3 /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		38CE5DFA19CE1AA3009892D3 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
 		38CE5DFC19CE1B32009892D3 /* CodeEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeEditorView.swift; sourceTree = "<group>"; };
 		38CE5DFE19CE273A009892D3 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
@@ -125,8 +121,6 @@
 				38E1D40919CF21870024FC34 /* HTMLParser.h */,
 				38CE5DFC19CE1B32009892D3 /* CodeEditorView.swift */,
 				38CE5DFA19CE1AA3009892D3 /* README.markdown */,
-				38CE5DF619CE1A30009892D3 /* PreviewController.swift */,
-				38CE5DF719CE1A30009892D3 /* TextViewController.swift */,
 				389E746119C8A54C00B18AF1 /* AppDelegate.swift */,
 				389E746319C8A54C00B18AF1 /* ViewController.swift */,
 				389E746519C8A54C00B18AF1 /* Document.swift */,
@@ -266,8 +260,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38CE5DF919CE1A30009892D3 /* TextViewController.swift in Sources */,
-				38CE5DF819CE1A30009892D3 /* PreviewController.swift in Sources */,
 				38CE5DFB19CE1AA3009892D3 /* README.markdown in Sources */,
 				389E746419C8A54C00B18AF1 /* ViewController.swift in Sources */,
 				38E1D40A19CF21870024FC34 /* HTMLParser.m in Sources */,
