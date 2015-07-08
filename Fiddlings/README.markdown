@@ -16,9 +16,13 @@ Issues:
 - Includetud CSS / JS jm faili ei tohi iga muudatuse peale reloadida
 - Webview skroll ei bounce ja on aeglasevõitu
 - Rakenduse quit peab säilitama dokumendi
+- Padding tekstieditoris
+- Line numbrid
 
 Koodieditor:
 
+- https://github.com/coteditor/CotEditor Siin paistab et on kõik vajalik koodivärvimine olemas!!!
+- http://usewhiskey.com Kasutab textmate koodi parserit vist. Võiks uurida kuidas töötab.
 - http://parsekit.com/okudakit/ ja ParseKit võiksid olla variandid mida uurida
 - http://www.noodlesoft.com/blog/2012/05/29/syntax-coloring-for-fun-and-profit/ mingi demo kuidas editori teha, basic editor oskab kommentaare highlightida näiteks
 - http://stackoverflow.com/questions/2218415/nstextview-syntax-highlighting
@@ -32,6 +36,7 @@ Indenting:
 Notes:
 
 - http://blog.jerodsanto.net/2010/12/bridging-the-gap-between-javascripts-console-log-and-cocoas-nslog/ siin peaks olema kirjas kuidas console.log teateid rakenduses kätte saab
+- https://sample-threes.readme.io/v1.0/docs/orders siin paremal pool olev värviskeem on ilus
 
 Testing:
 

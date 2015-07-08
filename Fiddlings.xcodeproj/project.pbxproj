@@ -60,6 +60,7 @@
 		389E747519C8A54C00B18AF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		389E747619C8A54C00B18AF1 /* FiddlingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiddlingsTests.swift; sourceTree = "<group>"; };
 		389E748219C8AEF600B18AF1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		38C63D9319ED9EDE00258901 /* Editor layout.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Editor layout.playground"; sourceTree = "<group>"; };
 		38CE5DFA19CE1AA3009892D3 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
 		38CE5DFC19CE1B32009892D3 /* CodeEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeEditorView.swift; sourceTree = "<group>"; };
 		38CE5DFE19CE273A009892D3 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
@@ -96,6 +97,7 @@
 		389E745319C8A54C00B18AF1 = {
 			isa = PBXGroup;
 			children = (
+				38C63D9319ED9EDE00258901 /* Editor layout.playground */,
 				38FD312519D09317000D0675 /* File read and write.playground */,
 				38E1D40219CF20720024FC34 /* PEGKit.framework */,
 				389E748219C8AEF600B18AF1 /* WebKit.framework */,
@@ -205,7 +207,8 @@
 		389E745419C8A54C00B18AF1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Priit Haamer";
 				TargetAttributes = {
 					389E745B19C8A54C00B18AF1 = {
@@ -321,6 +324,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -389,6 +393,7 @@
 				);
 				INFOPLIST_FILE = Fiddlings/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.priithaamer.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Fiddlings/Fiddlings-Bridging-Header.h";
 			};
@@ -405,6 +410,7 @@
 				);
 				INFOPLIST_FILE = Fiddlings/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.priithaamer.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Fiddlings/Fiddlings-Bridging-Header.h";
 			};
@@ -426,6 +432,7 @@
 				);
 				INFOPLIST_FILE = FiddlingsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.priithaamer.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FiddlingsTests/FiddlingsTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fiddlings.app/Contents/MacOS/Fiddlings";
@@ -444,6 +451,7 @@
 				);
 				INFOPLIST_FILE = FiddlingsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.priithaamer.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FiddlingsTests/FiddlingsTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fiddlings.app/Contents/MacOS/Fiddlings";

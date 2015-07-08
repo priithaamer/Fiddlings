@@ -36,25 +36,25 @@ class ViewController: NSViewController, NSTextViewDelegate, NSTextStorageDelegat
         textview.automaticSpellingCorrectionEnabled = false
         textview.continuousSpellCheckingEnabled = false
         
-        cssEditor.textStorage!.delegate = self
-        
-        cssEditor.font = NSFont(name: "Menlo", size: 12)
-//        cssEditor.textColor = NSColor.whiteColor()
-        cssEditor.automaticQuoteSubstitutionEnabled = false
-        cssEditor.automaticDashSubstitutionEnabled = false
-        cssEditor.automaticTextReplacementEnabled = false
-        cssEditor.automaticSpellingCorrectionEnabled = false
-        cssEditor.continuousSpellCheckingEnabled = false
-        
-        javascriptEditor.textStorage!.delegate = self
-        
-        javascriptEditor.font = NSFont(name: "Menlo", size: 12)
-//        javascriptEditor.textColor = NSColor.whiteColor()
-        javascriptEditor.automaticQuoteSubstitutionEnabled = false
-        javascriptEditor.automaticDashSubstitutionEnabled = false
-        javascriptEditor.automaticTextReplacementEnabled = false
-        javascriptEditor.automaticSpellingCorrectionEnabled = false
-        javascriptEditor.continuousSpellCheckingEnabled = false
+//        cssEditor.textStorage!.delegate = self
+//        
+//        cssEditor.font = NSFont(name: "Menlo", size: 12)
+////        cssEditor.textColor = NSColor.whiteColor()
+//        cssEditor.automaticQuoteSubstitutionEnabled = false
+//        cssEditor.automaticDashSubstitutionEnabled = false
+//        cssEditor.automaticTextReplacementEnabled = false
+//        cssEditor.automaticSpellingCorrectionEnabled = false
+//        cssEditor.continuousSpellCheckingEnabled = false
+//        
+//        javascriptEditor.textStorage!.delegate = self
+//        
+//        javascriptEditor.font = NSFont(name: "Menlo", size: 12)
+////        javascriptEditor.textColor = NSColor.whiteColor()
+//        javascriptEditor.automaticQuoteSubstitutionEnabled = false
+//        javascriptEditor.automaticDashSubstitutionEnabled = false
+//        javascriptEditor.automaticTextReplacementEnabled = false
+//        javascriptEditor.automaticSpellingCorrectionEnabled = false
+//        javascriptEditor.continuousSpellCheckingEnabled = false
     }
     
     override var representedObject: AnyObject? {
@@ -67,8 +67,8 @@ class ViewController: NSViewController, NSTextViewDelegate, NSTextStorageDelegat
                 document.delegate = self
                 
                 textview.string = doc.html
-                cssEditor.string = doc.css
-                javascriptEditor.string = doc.javascript
+//                cssEditor.string = doc.css
+//                javascriptEditor.string = doc.javascript
             }
             
         }
@@ -78,7 +78,7 @@ class ViewController: NSViewController, NSTextViewDelegate, NSTextStorageDelegat
     @IBOutlet var webview: WebView!
     
     func updateWebView(html: String, css: String, javascript: String) {
-        var str = "<html><style>\(css)</style><body>\(html)<script type=\"text/javascript\">\(javascript)</script></body></html>"
+        let str = "<html><style>\(css)</style><body>\(html)<script type=\"text/javascript\">\(javascript)</script></body></html>"
         
         webview.mainFrame.loadHTMLString(str, baseURL:nil)
     }
@@ -96,18 +96,18 @@ class ViewController: NSViewController, NSTextViewDelegate, NSTextStorageDelegat
     }
     
     // Text editors related
-    func textStorageDidProcessEditing(notification: NSNotification!) {
-        if notification.object as NSTextStorage == textview.textStorage! {
+    override func textStorageDidProcessEditing(notification: NSNotification) {
+        if notification.object as! NSTextStorage == textview.textStorage! {
             document.html = textview.string!
         }
         
-        if notification.object as NSTextStorage == cssEditor.textStorage! {
-            document.css = cssEditor.string!
-        }
-        
-        if notification.object as NSTextStorage == javascriptEditor.textStorage! {
-            //            document.javascript = javascriptEditor.string
-        }
+//        if notification.object as NSTextStorage == cssEditor.textStorage! {
+//            document.css = cssEditor.string!
+//        }
+//        
+//        if notification.object as NSTextStorage == javascriptEditor.textStorage! {
+//            //            document.javascript = javascriptEditor.string
+//        }
     }
     
     /**

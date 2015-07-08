@@ -54,12 +54,12 @@ class Document: NSDocument {
     
     override func makeWindowControllers() {
         // Returns the Storyboard that contains your Document window.
-        let storyboard = NSStoryboard(name: "Main", bundle: nil)!
-        let windowController = storyboard.instantiateControllerWithIdentifier("Document Window Controller") as NSWindowController
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        let windowController = storyboard.instantiateControllerWithIdentifier("Document Window Controller") as! NSWindowController
         self.addWindowController(windowController)
     }
     
-    override func fileWrapperOfType(typeName: String, error outError: NSErrorPointer) -> NSFileWrapper? {
+    override func fileWrapperOfType(typeName: String) throws -> NSFileWrapper {
         let data = [
             "version": "1.0",
             "html": html,
@@ -67,35 +67,30 @@ class Document: NSDocument {
             "javascript": javascript
         ]
         
-        var jsonError: NSError?
-        
-        let json:NSData = NSJSONSerialization.dataWithJSONObject(data, options:nil, error: &jsonError)!
+        let json:NSData = try! NSJSONSerialization.dataWithJSONObject(data, options:[])
         
         return NSFileWrapper(regularFileWithContents: json)
     }
     
-    override func readFromFileWrapper(fileWrapper: NSFileWrapper, ofType typeName: String, error outError: NSErrorPointer) -> Bool {
+    override func readFromFileWrapper(fileWrapper: NSFileWrapper, ofType typeName: String) throws {
         if let data = fileWrapper.regularFileContents {
-            var jsonerror: NSError?
-            
-            let json = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonerror) as NSDictionary
+            let json = try! NSJSONSerialization.JSONObjectWithData(data, options: []) as! NSDictionary
             
             if json["html"] is String {
-                html = json["html"] as String
+                html = json["html"] as! String
             }
             
             if json["css"] is String {
-                css = json["css"] as String
+                css = json["css"] as! String
             }
             
             if json["javascript"] is String {
-                javascript = json["javascript"] as String
+                javascript = json["javascript"] as! String
             }
             
-            return true
+            return
         } else {
-            outError.memory = NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
-            return false
+            throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
         }
     }
 

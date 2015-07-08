@@ -46,7 +46,7 @@ public class CodeEditorView: NSTextView {
         let previousLineLength = previousLine.lengthOfBytesUsingEncoding(NSUnicodeStringEncoding)
         
         // TODO: optimize Array(previousline)[j] -- gets j-th character from string
-        while (j < previousLineLength && (Array(previousLine)[j] == " " || Array(previousLine)[j] == "\t")) {
+        while (j < previousLineLength && (Array(previousLine.characters)[j] == " " || Array(previousLine.characters)[j] == "\t")) {
             j++
         }
         
