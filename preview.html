@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style id="css" type="text/css"></style>
+  </head>
+  <body>
+  </body>
+  <script type="text/javascript" id="js">
+  </script>
+
+  <script>
+    require('electron').ipcRenderer.on('updater', (event, type, content) => {
+      if (type === 'html') {
+        document.body.innerHTML = content;
+      }
+      if (type === 'css') {
+        document.head.querySelector('#css').textContent = content;
+      }
+      if (type === 'javascript') {
+        eval(content);
+      }
+    })
+  </script>
+</html>

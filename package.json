@@ -14,5 +14,9 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "^1.4.4"
+  },
+  "dependencies": {
+    "ace-builds": "^1.2.5",
+    "github-ace-light": "^0.2.0"
   }
 }
