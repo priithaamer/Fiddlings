@@ -1,3 +1,4 @@
+const electron = require('electron');
 const CodeMirror = require('codemirror');
 const htmlmixedmode = require('codemirror/mode/htmlmixed/htmlmixed');
 const cssmode = require('codemirror/mode/css/css');
@@ -63,11 +64,32 @@ const updateContents = (kind, contents) => {
 };
 
 preview.addEventListener('console-message', (e) => {
-  console.log('Guest page logged a message:', e.message);
+  console.log('Preview pane log:', e.message);
 });
 
 preview.addEventListener('dom-ready', () => {
   updateContents('html', htmlEditor.doc.getValue());
   updateContents('css', cssEditor.doc.getValue());
   updateContents('javascript', jsEditor.doc.getValue());
+});
+
+const {remote} = electron;
+const {Menu} = remote;
+
+const InputMenu = Menu.buildFromTemplate(
+  [
+    {label: 'Undo', role: 'undo'},
+    {label: 'Redo', role: 'redo'},
+    {type: 'separator'},
+    {label: 'Cut', role: 'cut'},
+    {label: 'Copy', role: 'copy'},
+    {label: 'Paste', role: 'paste'},
+    {type: 'separator'},
+    {label: 'Select all', role: 'selectall'}
+  ]
+);
+
+window.addEventListener('contextmenu', (e) => {
+  e.preventDefault();
+  InputMenu.popup(remote.getCurrentWindow());
 });
