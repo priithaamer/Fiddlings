@@ -3,6 +3,7 @@ body {
   padding: 0;
   margin: 0;
   height: 100vh;
+  font-family: BlinkMacSystemFont, 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
 
 .pane-editors,
@@ -15,6 +16,8 @@ body {
 .pane-editors {
   display: flex;
   flex-direction: column;
+  border-right: 1px solid rgba(0,0,0,0.15);
+  box-sizing: border-box;
 }
 
 .editor-container {

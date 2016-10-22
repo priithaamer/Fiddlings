@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <title>Fiddlings</title>
     <link href="./App.css" rel="stylesheet" />
+    <link href="./node_modules/codemirror/lib/codemirror.css" rel="stylesheet" />
+    <link href="./Editor.css" rel="stylesheet" />
   </head>
   <body>
     <div class="pane-editors">
       <div class="editor-container">
         <div>HTML</div>
-        <div class="html-editor" style="height: 100px;">Hello!</div>
+        <div class="html-editor" style="height: 100px;"></div>
       </div>
       <div class="editor-container">
         <div>CSS</div>
@@ -24,7 +26,7 @@
       <webview id="preview" src="./preview.html" style="display:inline-flex;height: 100vh;" nodeintegration></webview>
     </div>
   </body>
-  <script src="node_modules/ace-builds/src/ace.js" type="text/javascript" charset="utf-8"></script>
+
   <script>
     require('./renderer.js')
   </script>
