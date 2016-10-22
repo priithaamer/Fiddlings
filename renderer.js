@@ -15,6 +15,7 @@ const editorOptions = {
 const cssContent = `body {
   font-family: 'Helvetica Neue';
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
