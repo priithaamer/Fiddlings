@@ -8,6 +8,7 @@ const editorOptions = {
   smartIndent: true,
   tabSize: 2,
   lineNumbers: true,
+  theme: 'fiddlings',
   viewportMargin: Infinity
 }
 
