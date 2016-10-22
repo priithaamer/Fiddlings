@@ -1,7 +1,3 @@
-// This file is required by the index.html file and will
-// be executed in the renderer process for that window.
-// All of the Node.js APIs are available in this process.
-
 const CodeMirror = require('codemirror');
 const htmlmixedmode = require('codemirror/mode/htmlmixed/htmlmixed');
 const cssmode = require('codemirror/mode/css/css');
@@ -11,11 +7,32 @@ const editorOptions = {
   indentUnit: 2,
   smartIndent: true,
   tabSize: 2,
-  lineNumbers: true
+  lineNumbers: true,
+  viewportMargin: Infinity
 }
 
+const cssContent = `body {
+  font-family: 'Helvetica Neue';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-size: 38px;
+  font-weight: 300;
+  text-align: center;
+}
+
+b {
+  font-weight: 500;
+}`;
+
 const htmlEditor = CodeMirror(document.querySelector('.html-editor'), Object.assign({}, editorOptions, {
-  value: 'Hello!',
+  value: '<h1>Welcome to <b>Fiddlings!</b></h1>',
   mode: 'htmlmixed',
 }));
 htmlEditor.on('change', (editor, change) => {
@@ -23,7 +40,7 @@ htmlEditor.on('change', (editor, change) => {
 });
 
 const cssEditor = CodeMirror(document.querySelector('.css-editor'), Object.assign({}, editorOptions, {
-  value: 'body { color: red; }',
+  value: cssContent,
   mode: 'css',
 }));
 cssEditor.on('change', (editor, change) => {
