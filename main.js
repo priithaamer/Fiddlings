@@ -1,5 +1,5 @@
 const electron = require('electron')
-const {Menu} = require('electron')
+const {Menu, dialog} = require('electron')
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
@@ -27,6 +27,43 @@ function createWindow () {
 
 function createMenu() {
   const template = [
+    {
+      label: 'File',
+      submenu: [
+        // {label: 'New File'},
+        {
+          label: 'Open...',
+          accelerator: 'CmdOrCtrl+O',
+          click(item, focusedWindow) {
+            dialog.showOpenDialog({properties: ['openFile']}, (fileNames) => {
+              // fileNames is an array that contains all the selected
+              if (fileNames === undefined) {
+                return;
+              }
+
+              focusedWindow.webContents.send('file-open', fileNames[0]);
+            });
+          }
+        },
+        {type: 'separator'},
+        {
+          label: 'Save',
+          accelerator: 'CmdOrCtrl+S'
+        },
+        {
+          label: 'Save as...',
+          click(item, focusedWindow) {
+            dialog.showSaveDialog((fileName) => {
+              if (fileName === undefined) {
+                return;
+              }
+
+              focusedWindow.webContents.send('file-save-as', fileName);
+            });
+          }
+        }
+      ]
+    },
     {
       label: 'Edit',
       submenu: [
