@@ -23,9 +23,26 @@ body {
 }
 
 .preview-container {
-  display:inline-flex;
+  display: inline-flex;
   width: 100%;
-  height: 100vh;
+  /*height: 100vh;*/
+  height: 50vh;
+}
+
+.console-container {
+  border-top: 1px solid rgba(0,0,0,0.15);
+  /*display: inline-flex;*/
+  width: 100%;
+  height: 50vh;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.console-input {
+  width: 100%;
+  outline: none;
+  border: 0;
+  box-sizing: border-box;
 }
 
 .editor-container {

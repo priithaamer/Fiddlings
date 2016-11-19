@@ -109,6 +109,25 @@ preview.addEventListener('dom-ready', () => {
   updateContents('javascript', jsEditor.doc.getValue());
 });
 
+const consoleInput = document.querySelector('.console-input');
+const consoleLines = document.querySelector('.console-lines');
+consoleInput.addEventListener('keyup', (event) => {
+  if (event.key === 'Enter') {
+    const inputValue = event.target.value;
+
+    preview.executeJavaScript(inputValue, false, (result) => {
+      var line1 = document.createElement('div');
+      line1.innerHTML = inputValue;
+      consoleLines.appendChild(line1);
+      var line = document.createElement('div');
+      line.innerHTML = JSON.stringify(result);
+      consoleLines.appendChild(line);
+    });
+    event.target.value = '';
+    event.target.focus();
+  }
+});
+
 const {remote} = electron;
 const {Menu} = remote;
 

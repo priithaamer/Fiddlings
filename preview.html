@@ -10,7 +10,9 @@
   </script>
 
   <script>
-    require('electron').ipcRenderer.on('updater', (event, type, content) => {
+    const ipcRenderer = require('electron').ipcRenderer;
+
+    ipcRenderer.on('updater', (event, type, content) => {
       if (type === 'html') {
         document.body.innerHTML = content;
       }
@@ -18,8 +20,8 @@
         document.head.querySelector('#css').textContent = content;
       }
       if (type === 'javascript') {
-        eval(content);
+        eval.call(null, content);
       }
-    })
+    });
   </script>
 </html>
