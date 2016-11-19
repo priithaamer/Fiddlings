@@ -90,7 +90,13 @@ const jsEditor = CodeMirror(document.querySelector('.js-editor'), Object.assign(
   mode: 'javascript',
 }));
 jsEditor.on('change', (editor, change) => {
-  updateContents('javascript', editor.doc.getValue());
+  try {
+    const value = editor.doc.getValue();
+    const result = eval.call(null, value);
+    updateContents('javascript', value);
+  } catch (e) {
+    console.log('Error in javascript', e);
+  }
 });
 
 const preview = document.querySelector('#preview');
@@ -98,10 +104,6 @@ const preview = document.querySelector('#preview');
 const updateContents = (kind, contents) => {
   preview.send('updater', kind, contents);
 };
-
-preview.addEventListener('console-message', (e) => {
-  console.log('Preview pane log:', e.message);
-});
 
 preview.addEventListener('dom-ready', () => {
   updateContents('html', htmlEditor.doc.getValue());
@@ -111,21 +113,28 @@ preview.addEventListener('dom-ready', () => {
 
 const consoleInput = document.querySelector('.console-input');
 const consoleLines = document.querySelector('.console-lines');
+
+function addConsoleLine(content) {
+  var line = document.createElement('div');
+  line.innerHTML = content;
+  consoleLines.appendChild(line);
+}
+
 consoleInput.addEventListener('keyup', (event) => {
   if (event.key === 'Enter') {
     const inputValue = event.target.value;
 
     preview.executeJavaScript(inputValue, false, (result) => {
-      var line1 = document.createElement('div');
-      line1.innerHTML = inputValue;
-      consoleLines.appendChild(line1);
-      var line = document.createElement('div');
-      line.innerHTML = JSON.stringify(result);
-      consoleLines.appendChild(line);
+      addConsoleLine(inputValue);
+      addConsoleLine(JSON.stringify(result));
     });
     event.target.value = '';
     event.target.focus();
   }
+});
+
+preview.addEventListener('console-message', (e) => {
+  addConsoleLine(e.message);
 });
 
 const {remote} = electron;
