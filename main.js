@@ -160,7 +160,7 @@ function createMenu() {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow);
-// app.on('ready', createMenu);
+app.on('ready', createMenu);
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
