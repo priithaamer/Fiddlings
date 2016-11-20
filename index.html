@@ -6,28 +6,12 @@
     <link href="./App.css" rel="stylesheet" />
     <link href="./node_modules/codemirror/lib/codemirror.css" rel="stylesheet" />
     <link href="./Editor.css" rel="stylesheet" />
+    <script>
+    require('babel-register');
+    require('./src/renderer');
+    </script>
   </head>
   <body>
-    <div class="pane-editors">
-      <div class="editor-container">
-        <div class="editor-name">HTML</div>
-        <div class="editor html-editor"></div>
-      </div>
-      <div class="editor-container">
-        <div class="editor-name">CSS</div>
-        <div class="editor css-editor"></div>
-      </div>
-      <div class="editor-container">
-        <div class="editor-name">JavaScript</div>
-        <div class="editor js-editor"></div>
-      </div>
-    </div>
-    <div class="pane-preview">
-      <webview class="preview-container" id="preview" src="./preview.html" nodeintegration></webview>
-    </div>
+    <div id="root" class="parent-container" />
   </body>
-
-  <script>
-    require('./renderer.js')
-  </script>
 </html>

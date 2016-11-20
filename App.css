@@ -7,6 +7,12 @@ body {
   font-size: 0;
 }
 
+.parent-container,
+.fiddling-container {
+  display: flex;
+  width: 100%;
+}
+
 .pane-editors,
 .pane-preview {
   flex-grow: 1;
