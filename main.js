@@ -1,6 +1,6 @@
 // @flow
-import electron, {Menu, dialog} from 'electron';
-
+const electron = require('electron')
+const {Menu, dialog} = require('electron')
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.

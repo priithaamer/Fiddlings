@@ -59,4 +59,4 @@ window.addEventListener('contextmenu', (e) => {
 
 window.onload = () => {
   ReactDOM.render(<FiddlingContainer />, document.querySelector('#root'));
-}
+};

@@ -3,7 +3,7 @@ import React from 'react';
 
 import CodeMirror from '../lib/components/CodeMirror';
 
-const DEFAULT_HTML = '<h1>Welcome to <b>Fiddlings!</b></h1>'
+const DEFAULT_HTML = '<h1>Welcome to <b>Fiddlings!</b></h1>';
 
 const DEFAULT_CSS = `body {
   font-family: 'Helvetica Neue';
