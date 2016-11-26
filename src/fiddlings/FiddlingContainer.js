@@ -74,32 +74,37 @@ export default class FiddlingContainer extends React.Component {
     return (
       <div className="fiddling-container">
         <div className="pane-editors">
-          <div className="editor-container">
-            <div className="editor-name">HTML</div>
-            <CodeMirror
-              defaultValue={DEFAULT_HTML}
-              mode="htmlmixed"
-              className="editor"
-              handleChange={this.handleHtmlChanged.bind(this)}
+          <div className="editors-container">
+            <div className="editor-container">
+              <div className="editor-name">HTML</div>
+              <CodeMirror
+                defaultValue={DEFAULT_HTML}
+                mode="htmlmixed"
+                className="editor"
+                handleChange={this.handleHtmlChanged.bind(this)}
               />
+            </div>
+            <div className="editor-container">
+              <div className="editor-name">CSS</div>
+              <CodeMirror
+                defaultValue={DEFAULT_CSS}
+                mode="htmlmixed"
+                className="editor"
+                handleChange={this.handleCssChanged.bind(this)}
+              />
+            </div>
+            <div className="editor-container">
+              <div className="editor-name">JavaScript</div>
+              <CodeMirror
+                defaultValue={DEFAULT_JS}
+                mode="htmlmixed"
+                className="editor"
+                handleChange={this.handleJavascriptChanged.bind(this)}
+              />
+            </div>
           </div>
-          <div className="editor-container">
-            <div className="editor-name">CSS</div>
-            <CodeMirror
-              defaultValue={DEFAULT_CSS}
-              mode="htmlmixed"
-              className="editor"
-              handleChange={this.handleCssChanged.bind(this)}
-              />
-          </div>
-          <div className="editor-container">
-            <div className="editor-name">JavaScript</div>
-            <CodeMirror
-              defaultValue={DEFAULT_JS}
-              mode="htmlmixed"
-              className="editor"
-              handleChange={this.handleJavascriptChanged.bind(this)}
-              />
+          <div className="controls-container">
+            <div>Controls</div>
           </div>
         </div>
         <div className="pane-preview" ref="webViewContainer" />
