@@ -9,8 +9,7 @@
     "build:js": "webpack --config config/webpack.config.js",
     "build:copy": "cp src/templates/index.html index.html",
     "package:macos": "build --macos --x64",
-    "package:all": "yarn run build:js && yarn run build:copy && yarn run package:macos",
-    "publish:prerelease": "yarn run build:js && yarn run build:copy && build --macos --x64 --publish=onTag --prerelease"
+    "package:all": "yarn run build:js && yarn run build:copy && yarn run package:macos"
   },
   "repository": {
     "url": "git@github.com:priithaamer/Fiddlings.git",

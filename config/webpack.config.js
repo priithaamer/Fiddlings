@@ -3,7 +3,7 @@ module.exports = {
   entry: './src/renderer.js',
   output: {
     filename: 'renderer.dist.js',
-    path: './build'
+    path: '.'
   },
   module: {
     rules: [
