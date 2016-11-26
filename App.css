@@ -25,7 +25,6 @@ body {
   flex-direction: column;
   border-right: 1px solid rgba(0,0,0,0.15);
   box-sizing: border-box;
-  overflow: auto;
 }
 
 .preview-container {
@@ -34,8 +33,26 @@ body {
   height: 100vh;
 }
 
+.editors-container {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-direction: column;
+  overflow: auto;
+}
+
 .editor-container {
   flex: 1;
+}
+
+.controls-container {
+  flex-grow: 0;
+  flex-shrink: 0;
+  border-top: 1px solid rgba(0,0,0,0.15);
+  padding: 0.5em 1em;
+  color: #094650;
+  font-size: 10px;
+  user-select: none;
 }
 
 .editor-name {
@@ -47,5 +64,4 @@ body {
 
 .editor {
   position: relative;
-  background-color: yellow;
 }
