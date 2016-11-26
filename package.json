@@ -4,7 +4,7 @@
   "description": "Fiddlings.app",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
+    "start": "NODE_ENV=development electron .",
     "clean": "rm -rf ./Fiddlings-darwin-x64",
     "build:js": "webpack --config config/webpack.config.js",
     "build:copy": "cp src/templates/index.html index.html",
