@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron .",
     "clean": "rm -rf ./Fiddlings-darwin-x64",
-    "package:macos": "electron-packager . --platform=darwin"
+    "package:macos": "build --macos --x64"
   },
   "repository": {
     "url": "git@github.com:priithaamer/Fiddlings.git",
@@ -16,7 +16,7 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "^1.4.4",
-    "electron-packager": "^8.1.0",
+    "electron-builder": "^8.6.0",
     "eslint": "^3.10.2",
     "flow-bin": "^0.35.0"
   },
@@ -32,5 +32,8 @@
   },
   "eslintConfig": {
     "extends": "./config/eslint.js"
+  },
+  "build": {
+    "appId": "com.priithaamer.Fiddlings"
   }
 }
