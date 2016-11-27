@@ -15,22 +15,67 @@ body {
 
 .pane-editors,
 .pane-preview {
+  display: flex;
   flex-grow: 1;
   flex-shrink: 0;
   width: 50%;
 }
 
 .pane-editors {
-  display: flex;
   flex-direction: column;
   border-right: 1px solid rgba(0,0,0,0.15);
   box-sizing: border-box;
 }
 
+.pane-preview {
+  display: flex;
+  flex-direction: column;
+}
+
 .preview-container {
-  display:inline-flex;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 100vh;
+  flex-grow: 1;
+}
+
+.preview-frame {
+  flex-grow: 1;
+}
+
+.console-container {
+  display: none;
+  border-top: 1px solid rgba(0,0,0,0.15);
+  width: 100%;
+  height: 25vh;
+  font-size: 14px;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.console-container-visible {
+  display: block;
+}
+
+.console-lines > div {
+  font-family: 'SF Mono', 'Inconsolata', 'Monaco', 'Consolas', monospace;
+  font-size: 12px;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  line-height: 1.5;
+  padding-left: 20px;
+}
+
+.console-input {
+  width: 100%;
+  outline: none;
+  border: 0;
+  box-sizing: border-box;
+  font-family: 'SF Mono', 'Inconsolata', 'Monaco', 'Consolas', monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #094650;
+  padding: 2px 5px 2px 20px;
 }
 
 .editors-container {
@@ -46,13 +91,20 @@ body {
 }
 
 .controls-container {
+  display: flex;
+  flex-direction: column;
   flex-grow: 0;
   flex-shrink: 0;
   border-top: 1px solid rgba(0,0,0,0.15);
   padding: 0.5em 1em;
   color: #094650;
   font-size: 10px;
-  user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
+}
+
+.controls-container-console {
+  align-self: flex-end;
 }
 
 .editor-name {

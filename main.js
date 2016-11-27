@@ -1,4 +1,3 @@
-// @flow
 const electron = require('electron');
 const {Menu, dialog} = require('electron');
 // Module to control application life.

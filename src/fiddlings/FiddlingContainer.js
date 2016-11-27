@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import ClassSet from 'react-classset';
 
 import CodeMirror from '../lib/components/CodeMirror';
 
@@ -32,17 +33,32 @@ export default class FiddlingContainer extends React.Component {
 
   webView: any;
 
+  state: {
+    consoleVisible: boolean,
+    consoleInputValue: string,
+    consoleLines: Array<string>
+  }
+
+  constructor() {
+    super();
+    this.state = {
+      consoleVisible: false,
+      consoleInputValue: '',
+      consoleLines: []
+    };
+  }
+
   componentDidMount() {
     const webViewContainer = this.refs.webViewContainer;
 
     this.webView = document.createElement('webview');
-    this.webView.setAttribute('class', 'preview-container');
+    this.webView.setAttribute('class', 'preview-frame');
     this.webView.setAttribute('id', 'preview');
     this.webView.setAttribute('src', './preview.html');
     this.webView.setAttribute('nodeintegration', 'true');
 
     this.webView.addEventListener('console-message', e => {
-      console.log('Preview pane log:', e.message);
+      this.appendToConsoleLog(e.message);
     });
 
     this.webView.addEventListener('dom-ready', () => {
@@ -58,6 +74,14 @@ export default class FiddlingContainer extends React.Component {
     this.webView.send('updater', kind, value);
   }
 
+  appendToConsoleLog(...lines: Array<string>) {
+    this.setState({
+      consoleLines: [...this.state.consoleLines, ...lines]
+    }, () => {
+      this.refs.consoleInput.scrollIntoView();
+    });
+  }
+
   handleHtmlChanged(value: string) {
     this.updatePreview('html', value);
   }
@@ -68,6 +92,36 @@ export default class FiddlingContainer extends React.Component {
 
   handleJavascriptChanged(value: string) {
     this.updatePreview('javascript', value);
+  }
+
+  handleConsoleToggleClick() {
+    this.setState({
+      consoleVisible: !this.state.consoleVisible
+    });
+  }
+
+  handleConsoleInputChange(event: Event) {
+    if (event.target instanceof HTMLInputElement) {
+      const value = event.target.value;
+      this.setState({consoleInputValue: value});
+    }
+  }
+
+  handleConsoleKeyup(event: KeyboardEvent) {
+    if (event.key === 'Enter' && event.target instanceof HTMLInputElement) {
+      const input = event.target;
+      const inputValue = input.value;
+
+      this.webView.executeJavaScript(inputValue, false, (result) => {
+        this.appendToConsoleLog(inputValue, JSON.stringify(result));
+      });
+
+      this.setState({
+        consoleInputValue: ''
+      }, () => {
+        input.focus();
+      });
+    }
   }
 
   render() {
@@ -104,10 +158,30 @@ export default class FiddlingContainer extends React.Component {
             </div>
           </div>
           <div className="controls-container">
-            <div>Controls</div>
+            <div
+              className="controls-container-console"
+              onClick={this.handleConsoleToggleClick.bind(this)}
+              >
+              Console
+            </div>
           </div>
         </div>
-        <div className="pane-preview" ref="webViewContainer" />
+        <div className="pane-preview">
+          <div className="preview-container" ref="webViewContainer"></div>
+          <div className={ClassSet({'console-container': true, 'console-container-visible': this.state.consoleVisible})}>
+            <div className="console-lines">
+              {this.state.consoleLines.map((line, idx) => (<div key={idx}>{line}</div>))}
+            </div>
+            <input
+              type="text"
+              ref="consoleInput"
+              className="console-input"
+              value={this.state.consoleInputValue}
+              onChange={this.handleConsoleInputChange.bind(this)}
+              onKeyUp={this.handleConsoleKeyup.bind(this)}
+              />
+          </div>
+        </div>
       </div>
     );
   }
