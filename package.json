@@ -48,13 +48,6 @@
       "!doc${/*}",
       "!node_modules${/*}",
       "!src${/*}"
-    ],
-    "extraResources": [
-      {
-        "from": "src/templates",
-        "to": "",
-        "filter": ["*.html"]
-      }
     ]
   }
 }
