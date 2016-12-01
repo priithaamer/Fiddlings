@@ -4,34 +4,17 @@ import ClassSet from 'react-classset';
 
 import CodeMirror from '../lib/components/CodeMirror';
 
-const DEFAULT_HTML = '<h1>Welcome to <b>Fiddlings!</b></h1>';
+import typeof Fiddling from './Fiddling';
 
-const DEFAULT_CSS = `body {
-  font-family: 'Helvetica Neue';
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
+export type FiddlingContainerProps = {
+  fiddling: Fiddling
 }
-
-h1 {
-  font-size: 38px;
-  font-weight: 300;
-  text-align: center;
-}
-
-b {
-  font-weight: 500;
-}`;
-
-const DEFAULT_JS = '';
 
 export default class FiddlingContainer extends React.Component {
 
   webView: any;
+
+  fiddling: Fiddling;
 
   state: {
     consoleVisible: boolean,
@@ -39,8 +22,11 @@ export default class FiddlingContainer extends React.Component {
     consoleLines: Array<string>
   }
 
-  constructor() {
-    super();
+  constructor(props: FiddlingContainerProps) {
+    super(props);
+
+    this.fiddling = props.fiddling;
+
     this.state = {
       consoleVisible: false,
       consoleInputValue: '',
@@ -61,10 +47,12 @@ export default class FiddlingContainer extends React.Component {
       this.appendToConsoleLog(e.message);
     });
 
+    console.log(this.fiddling);
+
     this.webView.addEventListener('dom-ready', () => {
-      this.updatePreview('html', DEFAULT_HTML);
-      this.updatePreview('css', DEFAULT_CSS);
-      this.updatePreview('javascript', DEFAULT_JS);
+      this.updatePreview('html', this.fiddling.html);
+      this.updatePreview('css', this.fiddling.css);
+      this.updatePreview('javascript', this.fiddling.javascript);
     });
 
     webViewContainer.appendChild(this.webView);
@@ -83,14 +71,17 @@ export default class FiddlingContainer extends React.Component {
   }
 
   handleHtmlChanged(value: string) {
+    this.fiddling.html = value;
     this.updatePreview('html', value);
   }
 
   handleCssChanged(value: string) {
+    this.fiddling.css = value;
     this.updatePreview('css', value);
   }
 
   handleJavascriptChanged(value: string) {
+    this.fiddling.javascript = value;
     this.updatePreview('javascript', value);
   }
 
@@ -132,7 +123,7 @@ export default class FiddlingContainer extends React.Component {
             <div className="editor-container">
               <div className="editor-name">HTML</div>
               <CodeMirror
-                defaultValue={DEFAULT_HTML}
+                defaultValue={this.fiddling.html}
                 mode="htmlmixed"
                 className="editor"
                 handleChange={this.handleHtmlChanged.bind(this)}
@@ -141,7 +132,7 @@ export default class FiddlingContainer extends React.Component {
             <div className="editor-container">
               <div className="editor-name">CSS</div>
               <CodeMirror
-                defaultValue={DEFAULT_CSS}
+                defaultValue={this.fiddling.css}
                 mode="htmlmixed"
                 className="editor"
                 handleChange={this.handleCssChanged.bind(this)}
@@ -150,7 +141,7 @@ export default class FiddlingContainer extends React.Component {
             <div className="editor-container">
               <div className="editor-name">JavaScript</div>
               <CodeMirror
-                defaultValue={DEFAULT_JS}
+                defaultValue={this.fiddling.javascript}
                 mode="htmlmixed"
                 className="editor"
                 handleChange={this.handleJavascriptChanged.bind(this)}

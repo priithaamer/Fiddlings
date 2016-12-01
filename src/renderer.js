@@ -5,6 +5,9 @@ import fs from 'fs';
 import {ipcRenderer, remote} from 'electron';
 
 import FiddlingContainer from './fiddlings/FiddlingContainer';
+import Fiddling from './fiddlings/Fiddling';
+
+const fiddling = Fiddling.getDefaultFiddling();
 
 ipcRenderer.on('file-open', (event, fileName) => {
   fs.readFile(fileName, 'utf-8', (err, data) => {
@@ -21,14 +24,11 @@ ipcRenderer.on('file-open', (event, fileName) => {
   });
 });
 
+ipcRenderer.on('file-save', (event) => {
+});
+
 ipcRenderer.on('file-save-as', (event, fileName) => {
-  const contents = JSON.stringify({
-    version: '1.0'
-    // TODO: Read write values from editor
-    // html: htmlEditor.doc.getValue(),
-    // css: cssEditor.doc.getValue(),
-    // javascript: jsEditor.doc.getValue()
-  });
+  const contents = JSON.stringify(fiddling.toJSON());
 
   fs.writeFile(fileName, contents, (err) => {
     if (err) {
@@ -58,5 +58,5 @@ window.addEventListener('contextmenu', (e) => {
 });
 
 window.onload = () => {
-  ReactDOM.render(<FiddlingContainer />, document.querySelector('#root'));
+  ReactDOM.render(<FiddlingContainer fiddling={fiddling} />, document.querySelector('#root'));
 };

@@ -5,6 +5,7 @@
   min-height: 100%;
   line-height: 1.5;
   color: #094650;
+  background: none;
 }
 
 .CodeMirror-gutters {
@@ -13,7 +14,7 @@
 }
 
 .CodeMirror-linenumber {
-  color: #E4EBEE;
+  color: #9EB5CA;
 }
 
 .cm-s-fiddlings .cm-tag,

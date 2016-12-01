@@ -11,7 +11,7 @@ let windows = [];
 
 function createWindow() {
   // Create the browser window.
-  const window = new BrowserWindow({width: 1000, height: 700});
+  const window = new BrowserWindow({width: 1000, height: 700, vibrancy: 'light'});
 
   // and load the index.html of the app.
   window.loadURL(`file://${__dirname}/index.html`);
@@ -59,12 +59,16 @@ function createMenu() {
         {type: 'separator'},
         {
           label: 'Save',
-          accelerator: 'CmdOrCtrl+S'
+          accelerator: 'CmdOrCtrl+S',
+          click(item, focusedWindow) {
+            focusedWindow.webContents.send('file-save');
+          }
         },
         {
           label: 'Save as...',
+          accelerator: 'CmdOrCtrl+Shift+S',
           click(item, focusedWindow) {
-            dialog.showSaveDialog((fileName) => {
+            dialog.showSaveDialog(focusedWindow, (fileName) => {
               if (fileName === undefined) {
                 return;
               }

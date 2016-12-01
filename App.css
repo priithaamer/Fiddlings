@@ -29,6 +29,7 @@ body {
 
 .pane-preview {
   display: flex;
+  background-color: white;
   flex-direction: column;
 }
 
