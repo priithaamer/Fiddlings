@@ -1,6 +1,6 @@
 {
   "name": "Fiddlings",
-  "version": "1.0.0-pre-3",
+  "version": "1.0.0-pre-4",
   "description": "Fiddlings.app",
   "main": "main.js",
   "scripts": {
@@ -35,7 +35,8 @@
     "react": "^15.4.0",
     "react-classset": "^0.0.2",
     "react-dom": "^15.4.0",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "uuid": "^3.0.1"
   },
   "eslintConfig": {
     "extends": "./config/eslint.js"

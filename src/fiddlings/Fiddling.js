@@ -1,33 +1,12 @@
 // @flow
-const DefaultHtml = '<h1>Welcome to <b>Fiddlings!</b></h1>';
-
-const DefaultCss = `body {
-  font-family: 'Helvetica Neue';
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
-}
-
-h1 {
-  font-size: 38px;
-  font-weight: 300;
-  text-align: center;
-}
-
-b {
-  font-weight: 500;
-}`;
-
 export default class Fiddling {
 
-  static getDefaultFiddling = () => new Fiddling(DefaultHtml, DefaultCss, '');
-
   static parse = function(data) {
-
+    if (data.version === '1.0') {
+      return new Fiddling(data.html.data, data.css.data, data.javascript.data);
+    } else {
+      return new Fiddling('', '', '');
+    }
   };
 
   version = '1.0';

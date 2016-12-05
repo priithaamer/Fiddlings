@@ -1,33 +1,11 @@
 const electron = require('electron');
 const {Menu, dialog} = require('electron');
-// Module to control application life.
 const app = electron.app;
-// Module to create native browser window.
-const BrowserWindow = electron.BrowserWindow;
+const DocumentManager = require('./app/DocumentManager');
 
-// Keep a global reference of the windows, if you don't, the windows will
-// be closed automatically when the JavaScript object is garbage collected.
-let windows = [];
+const documentManager = new DocumentManager();
 
-function createWindow() {
-  // Create the browser window.
-  const window = new BrowserWindow({width: 1000, height: 700, vibrancy: 'light'});
-
-  // and load the index.html of the app.
-  window.loadURL(`file://${__dirname}/index.html`);
-
-  // Emitted when the window is closed.
-  window.on('closed', function() {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
-    windows.splice(windows.indexOf(window), 1);
-  });
-
-  windows.push(window);
-
-  return window;
-}
+const fileDialogFilter = [{name: 'Fiddling', extensions: ['fiddling']}];
 
 function createMenu() {
   const template = [
@@ -38,21 +16,20 @@ function createMenu() {
           label: 'New File',
           accelerator: 'CmdOrCtrl+Shift+N',
           click() {
-            createWindow();
+            documentManager.newDocument();
           }
         },
         {
           label: 'Open...',
           accelerator: 'CmdOrCtrl+O',
-          click(item, focusedWindow) {
-            dialog.showOpenDialog({properties: ['openFile']}, (fileNames) => {
+          click(item) {
+            dialog.showOpenDialog({properties: ['openFile'], filters: fileDialogFilter}, (fileNames) => {
               // fileNames is an array that contains all the selected
               if (fileNames === undefined) {
                 return;
               }
 
-              const window = createWindow();
-              window.webContents.send('file-open', fileNames[0]);
+              documentManager.openDocument(fileNames[0]);
             });
           }
         },
@@ -61,19 +38,17 @@ function createMenu() {
           label: 'Save',
           accelerator: 'CmdOrCtrl+S',
           click(item, focusedWindow) {
-            focusedWindow.webContents.send('file-save');
+            documentManager.saveDocument(focusedWindow, (window, handleSaveDialogComplete) => {
+              dialog.showSaveDialog(window, {filters: fileDialogFilter}, handleSaveDialogComplete);
+            });
           }
         },
         {
           label: 'Save as...',
           accelerator: 'CmdOrCtrl+Shift+S',
           click(item, focusedWindow) {
-            dialog.showSaveDialog(focusedWindow, (fileName) => {
-              if (fileName === undefined) {
-                return;
-              }
-
-              focusedWindow.webContents.send('file-save-as', fileName);
+            dialog.showSaveDialog(focusedWindow, {filters: fileDialogFilter}, (fileName) => {
+              documentManager.saveDocumentAs(focusedWindow, fileName);
             });
           }
         }
@@ -160,7 +135,7 @@ function createMenu() {
         accelerator: 'CmdOrCtrl+R',
         click(item, focusedWindow) {
           if (focusedWindow) {
-            focusedWindow.reload();
+            documentManager.reloadDocument(focusedWindow);
           }
         }
       },
@@ -186,7 +161,9 @@ function createMenu() {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
+app.on('ready', () => {
+  documentManager.newDocument();
+});
 app.on('ready', createMenu);
 
 // Quit when all windows are closed.
@@ -201,8 +178,9 @@ app.on('window-all-closed', function() {
 app.on('activate', function() {
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
-  if (windows.length === 0) {
-    createWindow();
+  if (documentManager.size === 0) {
+    // documentManager.newDocument();
+    // TODO: Show open dialog
   };
 });
 

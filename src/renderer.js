@@ -1,44 +1,42 @@
 // @flow
 import React from 'react';
 import ReactDOM from 'react-dom';
-import fs from 'fs';
 import {ipcRenderer, remote} from 'electron';
 
 import FiddlingContainer from './fiddlings/FiddlingContainer';
 import Fiddling from './fiddlings/Fiddling';
 
-const fiddling = Fiddling.getDefaultFiddling();
+let documentId;
+let fiddling;
 
-ipcRenderer.on('file-open', (event, fileName) => {
-  fs.readFile(fileName, 'utf-8', (err, data) => {
-    if (err) {
-      alert('An error ocurred reading the file: ' + err.message);
-      return;
-    }
+function handleContentChange() {
+  ipcRenderer.send('fiddling-changed', documentId);
+}
 
-    const contents = JSON.parse(data);
+function renderFiddling() {
+  ReactDOM.render((
+    <FiddlingContainer
+      fiddling={fiddling}
+      onContentChange={handleContentChange}
+      />
+  ), document.querySelector('#root'));
+}
 
-    if (contents.version === '1.0') {
-      // TODO: set value from contents.html, contents.css, contents.javascript
-    }
-  });
+ipcRenderer.on('set-contents', (event, id, data) => {
+
+  console.log('set contents', id);
+
+  documentId = id;
+  // TODO: Recover from incorrect data
+  fiddling = new Fiddling(data.html.data, data.css.data, data.javascript.data);
+  renderFiddling();
 });
 
-ipcRenderer.on('file-save', (event) => {
+ipcRenderer.on('get-contents', (event, id) => {
+  event.sender.send(id, fiddling.toJSON());
 });
 
-ipcRenderer.on('file-save-as', (event, fileName) => {
-  const contents = JSON.stringify(fiddling.toJSON());
-
-  fs.writeFile(fileName, contents, (err) => {
-    if (err) {
-      alert('An error ocurred creating the file ' + err.message);
-    }
-
-    // TODO: Notify that file has been saved
-  });
-});
-
+// TODO: Maybe we can replace with this: https://pracucci.com/atom-electron-enable-copy-and-paste.html
 const InputMenu = remote.Menu.buildFromTemplate(
   [
     {label: 'Undo', role: 'undo'},
@@ -56,7 +54,3 @@ window.addEventListener('contextmenu', (e) => {
   e.preventDefault();
   InputMenu.popup(remote.getCurrentWindow());
 });
-
-window.onload = () => {
-  ReactDOM.render(<FiddlingContainer fiddling={fiddling} />, document.querySelector('#root'));
-};

@@ -4,10 +4,11 @@ import ClassSet from 'react-classset';
 
 import CodeMirror from '../lib/components/CodeMirror';
 
-import typeof Fiddling from './Fiddling';
+import Fiddling from './Fiddling';
 
 export type FiddlingContainerProps = {
-  fiddling: Fiddling
+  fiddling: Fiddling,
+  onContentChange: () => void
 }
 
 export default class FiddlingContainer extends React.Component {
@@ -47,8 +48,6 @@ export default class FiddlingContainer extends React.Component {
       this.appendToConsoleLog(e.message);
     });
 
-    console.log(this.fiddling);
-
     this.webView.addEventListener('dom-ready', () => {
       this.updatePreview('html', this.fiddling.html);
       this.updatePreview('css', this.fiddling.css);
@@ -72,16 +71,19 @@ export default class FiddlingContainer extends React.Component {
 
   handleHtmlChanged(value: string) {
     this.fiddling.html = value;
+    this.props.onContentChange();
     this.updatePreview('html', value);
   }
 
   handleCssChanged(value: string) {
     this.fiddling.css = value;
+    this.props.onContentChange();
     this.updatePreview('css', value);
   }
 
   handleJavascriptChanged(value: string) {
     this.fiddling.javascript = value;
+    this.props.onContentChange();
     this.updatePreview('javascript', value);
   }
 
