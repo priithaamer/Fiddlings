@@ -1,5 +1,5 @@
 const electron = require('electron');
-const {ipcMain} = require('electron');
+const {ipcMain, dialog} = require('electron');
 const fs = require('fs');
 const path = require('path');
 const uuid = require('uuid');
@@ -135,6 +135,7 @@ class DocumentManager {
         saveFile(document.fileName, contents);
       } else {
         getSavePath(window, (fileName) => {
+          // TODO: Check if fileName exists -- when clicking cancel on save dialog it is undefined
           const basename = path.basename(fileName);
           saveFile(fileName, contents);
           this.setWindowFilename(window, fileName);
@@ -190,17 +191,37 @@ class DocumentManager {
     }
   }
 
+  handleWindowClose(event) {
+    const window = event.sender;
+
+    if (window.isDocumentEdited()) {
+      event.preventDefault();
+
+      dialog.showMessageBox(window, {
+        type: 'question',
+        buttons: ['Save', 'Cancel', 'Don\'t save'],
+        title: 'This fiddling has changes, do you want to save them?',
+        message: 'Your changes will be lost if you close this item without saving.'
+      }, (response) => {
+        if (response === 2) {
+          window.destroy();
+        }
+        // TODO: Implement save feature.
+      });
+    }
+  }
+
   // Dereference the window object, usually you would store windows
   // in an array if your app supports multi windows, this is the time
   // when you should delete the corresponding element.
-  // TODO: Implement window close function
   handleWindowClosed(event) {
-    // console.log(event);
-    //
-    // console.log(this.windows, event.sender.id);
-    // console.log(window.id);
+    const [id] = Array.from(this.windows).find(([id, window]) => {
+      return window.window === event.sender;
+    });
 
-    // this.windows.delete(event.sender.id);
+    if (id) {
+      this.windows.delete(id);
+    }
   }
 
   createWindow(options) {
@@ -209,6 +230,9 @@ class DocumentManager {
 
     // and load the index.html of the app.
     window.loadURL(`file://${__dirname}/../index.html`);
+
+    // Emitted before window is being closed. Cancelling this event will not close the window.
+    window.on('close', this.handleWindowClose.bind(this));
 
     // Emitted when the window is closed.
     window.on('closed', this.handleWindowClosed.bind(this));
